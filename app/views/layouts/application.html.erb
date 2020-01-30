@@ -10,12 +10,24 @@
   </head>
 
   <body>
+    <%= link_to 'Home', '/' %>
     <%= link_to 'Teeについて', homes_about_path %>
+    <%= link_to '活動紹介', events_path %>
     <% if user_signed_in? %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% if current_user.admin? %>
+        <%= link_to '管理者ページ', '/admin' %>
+      <% end %>
+      <% if current_user.active? %>
+        <%= link_to 'ユーザ一覧', users_path %>
+      <% end %>
     <% else %>
       <%= link_to '新規登録', new_user_registration_path %>
       <%= link_to 'ログイン', new_user_session_path %>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     <%= yield %>
   </body>

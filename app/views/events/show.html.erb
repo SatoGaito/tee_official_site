@@ -1,0 +1,8 @@
+<h1>活動詳細</h1>
+<%= @event.title %><%= @event.date %>
+<%= attachment_image_tag(@event, :event_image, :fill, 60, 60, format: 'jpeg') %>
+<%= @event.content %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to '編集', edit_event_path %>
+  <%= link_to '削除', event_path, method: :delete %>
+<% end %>

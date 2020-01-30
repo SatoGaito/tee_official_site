@@ -22,5 +22,11 @@
   <%= f.label :introduction %>
   <%= f.text_area :introduction, autofocus: true %>
 
+  <%= f.label :active %>
+  <%= f.check_box :active, :as => :boolean %>
+
+  <%= f.label :executive %>
+  <%= f.check_box :executive, :as => :boolean %>
+
   <%= f.submit "保存" %>
 <% end %>

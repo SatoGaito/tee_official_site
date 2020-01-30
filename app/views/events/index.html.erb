@@ -1,0 +1,10 @@
+<h1>活動紹介</h1>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to '投稿', new_event_path %>
+<% end %>
+<% @events.each do |event| %>
+  <p>
+    <%=link_to event.title, event_path(event) %><%= event.date %>
+    <%= attachment_image_tag(event, :event_image, :fill, 60, 60, format: 'jpeg') %>
+  </p>
+<% end %>

@@ -1,0 +1,16 @@
+<%= form_for @event do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, autofocus: true %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, autofocus: true %>
+
+  <%= f.label :event_image %>
+  <%= f.attachment_field :event_image %>
+
+  <%= f.submit "保存" %>
+<% end %>

@@ -6,7 +6,7 @@
 <div>
   <%= attachment_image_tag(@user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg") %>
 </div>
-
-<%= link_to "編集", edit_user_path(@user) %>
-<%= link_to "ユーザ一覧", users_path %>
+<% if user_signed_in? && current_user.id == @user.id %>
+  <%= link_to "編集", edit_user_path(@user) %>
+<% end %>
 
