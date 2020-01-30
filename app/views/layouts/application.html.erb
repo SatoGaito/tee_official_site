@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= link_to 'Teeについて', homes_about_path %>
     <% if user_signed_in? %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
     <% else %>
