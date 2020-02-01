@@ -67,3 +67,6 @@ gem 'rails_admin'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'

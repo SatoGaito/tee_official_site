@@ -1,10 +1,37 @@
-<h1>活動紹介</h1>
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to '投稿', new_event_path %>
-<% end %>
-<% @events.each do |event| %>
-  <p>
-    <%=link_to event.title, event_path(event) %><%= event.date %>
-    <%= attachment_image_tag(event, :event_image, :fill, 60, 60, format: 'jpeg') %>
-  </p>
-<% end %>
+
+<div class="top">
+  <div class="row">
+    <div class="event-head mt-4">
+      <h1>活動一覧</h1>
+      <% if user_signed_in? && current_user.admin? %>
+        <%= link_to '投稿', new_event_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="event-index">
+
+      <% @events.each do |event| %>
+        <div class="mb-4 event-box">
+          <a class="btn btn-warning btn-lg btn-block d-flex justify-content-between align-items-center" data-toggle="collapse" href="#collapseExample<%= event.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span class="event-title">
+              <%= "【#{event.title}】" %>
+            </span>
+            <sapn class="event-date">
+              <%= event.date %>
+            </sapn>
+          </a>
+          <div class="collapse acd-content mt-2" id="collapseExample<%= event.id %>">
+            <div><%= attachment_image_tag(event, :event_image, format: 'jpeg', class: "img mt-2") %></div>
+            <div class="d-flex align-items-center mt-2 mb-2 mr-4 ml-4">
+              <%= link_to "活動詳細", event_path(event), class: "btn btn-sm col-6 btn-outline-warning event-detail" %>
+              <p class="col-6 mb-0"><%= "コメント#{event.event_comments.count}件" %></p>
+            </div>
+          </div>
+          
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

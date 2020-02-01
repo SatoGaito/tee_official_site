@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+
+
+body {
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0) 40%,rgba(255,255,255,0.5) 60%,rgba(255,255,255,1) 100%),url(top1.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  line-height: 1.5;
+  color: #555;
+  font-family: 'Lato', sans-serif;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.carousel {
+  width: 100%;
+  padding: 50px 0;
+}
+
+
+.carousel-item img {
+  width:100%;
+  max-width: 100%;
+  height: auto;
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+}
+
+a {
+  color: #555;
+}
+
+
+.navbar {
+  border: 1px solid #EEE;
+  background-color: #fff;
+}
+
+.logo {
+  padding-right: 30px;
+  margin-right: 30px;
+  border-right: 1px solid #EEE;
+}
+
+.header-logo {
+  height: 50px;
+}
+
+// .row {
+//   background-color: rgba(255,255,255,0.7);
+// }
+
+.top {
+  background-color: rgba(255,255,255,0.7);
+  height: 1000px;
+
+}
+
+.content {
+  h1 {
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 150px;
+  }
+}
+
+
+
+// event-index
+
+.event-head {
+  width: 100%;
+}
+
+.event-index {
+  width: 100%;
+
+  .event-title {
+    font-size: 40px;
+  }
+}
+
+.acd-content {
+  text-align: center;
+  height: auto;
+  width: 100%;
+  background-color: rgba(255, 193, 7, 0.5);
+  border-width: 0 3px 3px;
+  border: solid rgba(255, 193, 7, 0.5);
+  border-radius: 0.3rem;
+
+  .img {
+    width: 95%;
+    height: auto;
+  }
+
+  .event-detail {
+    color: #555;
+  }
+}
+
+
+
+
+
+
+
