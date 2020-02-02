@@ -1,19 +1,77 @@
-<h1>活動詳細</h1>
-<%= @event.title %><%= @event.date %>
-<%= attachment_image_tag(@event, :event_image, :fill, 60, 60, format: 'jpeg') %>
-<%= @event.content %>
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to '編集', edit_event_path %>
-  <%= link_to '削除', event_path, method: :delete %>
-<% end %>
+<div class="top">
+  <div class="row">
+    <div class="event-head mt-4">
+      <h1>活動詳細</h1>
+      <% if user_signed_in? && current_user.admin? %>
+        <%= link_to '編集', edit_event_path %>
+        <%= link_to '削除', event_path, method: :delete %>
+      <% end %>
+    </div>
+  </div>
 
-<% @event.event_comments.each do |event_comment| %>
-  <%= event_comment.user.nickname %>
-  <%= event_comment.comment %>
-  <%= event_comment.created_at.strftime('%Y/%m/%d') %>
-<% end %>
+  <div class="row mt-4">
+    <div class="acd-content mb-2">
+      <span class="event-title">
+        <%= "【#{@event.title}】" %>
+      </span>
+      <span class="event-date">
+        <%= @event.date %>
+      </span>
+      <%= attachment_image_tag(@event, :event_image, format: 'jpeg', class: "img mt-2 mb-2") %>
+      <p>【活動内容】</p>
+      <p class="event-content">
+        <%= @event.content %>
+      </p>
+    </div>
 
-<%= form_for [@event, @event_comment] do |f| %>
-  <%= f.text_area :comment, placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
+    <div class="comment-list">
+      <div class="comment-count">
+        <%= "【コメント：#{@event.event_comments.count}件】" %>
+      </div>
+      <ol class="pl-0">
+        <% @event.event_comments.each do |event_comment| %>
+          <li class="comment">
+          <hr>
+            <div class="comment-body">
+              <div class="comment-top d-flex flex-row align-items-center mb-2">
+                <div class="comment-avatar mr-3">
+                  <div class="avatar">
+                    <%= attachment_image_tag(event_comment.user, :profile_image, format: 'jpeg') %>
+                  </div>
+                </div>
+                <div class="comment-nickname">
+                  <%= event_comment.user.nickname %>
+                </div>
+              </div>
+              <div class="commnt-bottom">
+                <div class="comment-text d-flex flex-row align-items-center mb-2">
+                  <i class="far fa-comment-dots mr-3 ml-3"></i>
+                  <%= event_comment.comment %>
+                </div>
+                <div class="comment-date d-flex flex-row align-items-center">
+                  <i class="far fa-clock mr-3 ml-3"></i>
+                  <%= event_comment.created_at.strftime('%Y/%m/%d/%R') %>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+        <hr>
+      </ol>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="comment-form">
+        <div class="mb-2">【コメントフォーム】</div>
+          <%= form_for [@event, @event_comment] do |f| %>
+            <div class="d-flex">
+              <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
+              <%= f.submit "送信する", class: "btn btn-warning mb-2" %>
+            <div>
+          <% end %>
+        </div>
+      <div>
+    <% end %>
+    
+  </div>
+</div>

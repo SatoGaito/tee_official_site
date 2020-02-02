@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :ensure_correct_user, except: [:index, :show]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @events = Event.all
