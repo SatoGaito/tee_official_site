@@ -4,7 +4,7 @@
       <h1>活動詳細</h1>
       <% if user_signed_in? && current_user.admin? %>
         <%= link_to '編集', edit_event_path %>
-        <%= link_to '削除', event_path, method: :delete %>
+        <%= link_to '削除', event_path, method: :delete,"data-confirm" => "本当に消しますか？" %>
       <% end %>
     </div>
   </div>
@@ -46,7 +46,10 @@
               <div class="commnt-bottom">
                 <div class="comment-text d-flex flex-row align-items-center mb-2">
                   <i class="far fa-comment-dots mr-3 ml-3"></i>
-                  <%= event_comment.comment %>
+                  <span class="mr-auto"><%= event_comment.comment %></span>
+                  <% if user_signed_in? && current_user.id == event_comment.user_id %>
+                    <%= link_to "削除", event_event_comment_path(event_comment.event.id, event_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete mr-2 btn-sm btn-warning" %> 
+                  <% end %>
                 </div>
                 <div class="comment-date d-flex flex-row align-items-center">
                   <i class="far fa-clock mr-3 ml-3"></i>
@@ -54,7 +57,9 @@
                 </div>
               </div>
             </div>
+            
           </li>
+          
         <% end %>
         <hr>
       </ol>
