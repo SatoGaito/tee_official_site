@@ -181,6 +181,43 @@ a {
 }
 
 
+// user-index 
+
+.table {
+  img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 0 auto;
+  }
+
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+  }
+
+.search {
+  padding: 10px;
+  border: 1px solid #EEE;
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-bottom: 0;
+  }
+
+  .gender {
+    input {
+      margin-left: 10px;
+    }
+  }
+
+}
+
 
 
 
