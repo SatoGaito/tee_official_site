@@ -1,4 +1,28 @@
 
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :nickname, "ニックネーム" %>
+  <%= f.search_field :nickname_cont %>
+
+  <%= f.label :gender, "性別" %>
+  <%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
+  <%= f.radio_button :gender_eq, '男' %>男性
+  <%= f.radio_button :gender_eq, '女' %>女性
+
+  <%= f.label :college, "大学名" %>
+  <%= f.search_field :college_cont %>
+
+  <%= f.label :grade, "回生" %>
+  <%= f.number_field :grade_gteq, min: 1, max: 4 %>以上〜
+  <%= f.number_field :grade_lteq, min: 1, max: 4 %>以下
+
+
+
+
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <% @users.each do |user| %>
   <p>
     <%=link_to user.nickname, user_path(user) %>
