@@ -29,12 +29,6 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 .container {
   margin-top: 60px;
   text-align: center;
@@ -216,6 +210,15 @@ a {
     }
   }
 
+}
+
+// user-show
+
+
+.profile-image {
+  img {
+    border-radius: 100%;
+  }
 }
 
 

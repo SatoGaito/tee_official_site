@@ -1,82 +1,81 @@
-<div class="top">
-  <div class="row">
-    <div class="event-head mt-4">
-      <h1>活動詳細</h1>
-      <% if user_signed_in? && current_user.admin? %>
-        <%= link_to '編集', edit_event_path %>
-        <%= link_to '削除', event_path, method: :delete,"data-confirm" => "本当に消しますか？" %>
-      <% end %>
-    </div>
+
+<div class="row">
+  <div class="event-head mt-4">
+    <h1>活動詳細</h1>
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to '編集', edit_event_path %>
+      <%= link_to '削除', event_path, method: :delete,"data-confirm" => "本当に消しますか？" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mt-4 pr-3 pl-3">
+  <div class="acd-content mb-2">
+    <span class="event-title">
+      <%= "【#{@event.title}】" %>
+    </span>
+    <span class="event-date">
+      <%= @event.date %>
+    </span>
+    <%= attachment_image_tag(@event, :event_image, format: 'jpeg', class: "img mt-2 mb-2") %>
+    <p>【活動内容】</p>
+    <p class="event-content">
+      <%= @event.content %>
+    </p>
   </div>
 
-  <div class="row mt-4">
-    <div class="acd-content mb-2">
-      <span class="event-title">
-        <%= "【#{@event.title}】" %>
-      </span>
-      <span class="event-date">
-        <%= @event.date %>
-      </span>
-      <%= attachment_image_tag(@event, :event_image, format: 'jpeg', class: "img mt-2 mb-2") %>
-      <p>【活動内容】</p>
-      <p class="event-content">
-        <%= @event.content %>
-      </p>
+  <div class="comment-list">
+    <div class="comment-count">
+      <%= "【コメント：#{@event.event_comments.count}件】" %>
     </div>
-
-    <div class="comment-list">
-      <div class="comment-count">
-        <%= "【コメント：#{@event.event_comments.count}件】" %>
-      </div>
-      <ol class="pl-0">
-        <% @event.event_comments.each do |event_comment| %>
-          <li class="comment">
-          <hr>
-            <div class="comment-body">
-              <div class="comment-top d-flex flex-row align-items-center mb-2">
-                <div class="comment-avatar mr-3">
-                  <div class="avatar">
-                    <%= attachment_image_tag(event_comment.user, :profile_image, format: 'jpeg') %>
-                  </div>
-                </div>
-                <div class="comment-nickname">
-                  <%= event_comment.user.nickname %>
+    <ol class="pl-0">
+      <% @event.event_comments.each do |event_comment| %>
+        <li class="comment">
+        <hr>
+          <div class="comment-body">
+            <div class="comment-top d-flex flex-row align-items-center mb-2">
+              <div class="comment-avatar mr-3">
+                <div class="avatar">
+                  <%= attachment_image_tag(event_comment.user, :profile_image, format: 'jpeg') %>
                 </div>
               </div>
-              <div class="commnt-bottom">
-                <div class="comment-text d-flex flex-row align-items-center mb-2">
-                  <i class="far fa-comment-dots mr-3 ml-3"></i>
-                  <span class="mr-auto"><%= event_comment.comment %></span>
-                  <% if user_signed_in? && current_user.id == event_comment.user_id %>
-                    <%= link_to "削除", event_event_comment_path(event_comment.event.id, event_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn-sm btn-warning" %> 
-                  <% end %>
-                </div>
-                <div class="comment-date d-flex flex-row align-items-center">
-                  <i class="far fa-clock mr-3 ml-3"></i>
-                  <%= event_comment.created_at.strftime('%Y/%m/%d/%R') %>
-                </div>
+              <div class="comment-nickname">
+                <%= event_comment.user.nickname %>
               </div>
             </div>
-            
-          </li>
+            <div class="commnt-bottom">
+              <div class="comment-text d-flex flex-row align-items-center mb-2">
+                <i class="far fa-comment-dots mr-3 ml-3"></i>
+                <span class="mr-auto"><%= event_comment.comment %></span>
+                <% if user_signed_in? && current_user.id == event_comment.user_id %>
+                  <%= link_to "削除", event_event_comment_path(event_comment.event.id, event_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn-sm btn-warning" %> 
+                <% end %>
+              </div>
+              <div class="comment-date d-flex flex-row align-items-center">
+                <i class="far fa-clock mr-3 ml-3"></i>
+                <%= event_comment.created_at.strftime('%Y/%m/%d/%R') %>
+              </div>
+            </div>
+          </div>
           
-        <% end %>
-        <hr>
-      </ol>
-    </div>
-
-    <% if user_signed_in? %>
-      <div class="comment-form">
-        <div class="mb-2">【コメントフォーム】</div>
-          <%= form_for [@event, @event_comment] do |f| %>
-            <div class="d-flex">
-              <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
-              <%= f.submit "送信する", class: "btn btn-warning mb-2" %>
-            <div>
-          <% end %>
-        </div>
-      <div>
-    <% end %>
-    
+        </li>
+        
+      <% end %>
+      <hr>
+    </ol>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="comment-form">
+      <div class="mb-2">【コメントフォーム】</div>
+        <%= form_for [@event, @event_comment] do |f| %>
+          <div class="d-flex">
+            <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
+            <%= f.submit "送信する", class: "btn btn-warning mb-2" %>
+          <div>
+        <% end %>
+      </div>
+    <div>
+  <% end %>
+  
 </div>
