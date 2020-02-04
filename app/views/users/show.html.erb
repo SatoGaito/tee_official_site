@@ -1,16 +1,11 @@
 
 <div class="row">
-  <div class="event-head mt-4">
-    <h1>マイページ</h1>
-  </div>
-</div>
-
-<div class="profile pr-4 pl-4 mt-4">
+<div class="profile w-100">
   <div class="profile-top">
-    <div class="profile-image mb-2">
+    <div class="profile-image mb-4">
       <%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, format: 'jpeg',  fallback: "no_image.jpg") %>
     </div>
-    <div class="nickname mb-2">
+    <div class="nickname">
       <h3><%= @user.nickname %></h3>
     </div>
     <div class="college-grade">
@@ -20,13 +15,17 @@
   <hr>
   <div class="introduction">
     <p>【自己紹介】</p>
-    <%= simple_format(@user.introduction, class: "text-left") %>
+    <p class="text-left">
+      <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
+    </p>
   </div>
+  <hr>
+  <% if user_signed_in? && current_user.id == @user.id %>
+    <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info btn-lg btn-block" %>
+  <% end %>
+
 </div>
-<hr>
-<% if user_signed_in? && current_user.id == @user.id %>
-  <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info" %>
-<% end %>
+</div>
 
 
 

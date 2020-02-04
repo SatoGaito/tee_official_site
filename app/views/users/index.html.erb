@@ -1,75 +1,65 @@
-
 <div class="row">
-  <div class="event-head mt-4">
-    <h1>メンバー</h1>
+  <div class="search-info mb-2 d-flex align-items-center justify-content-between w-100">
+    <%= "所属人数：#{@users.count}人" %>
+    <a class="btn btn-sm btn-outline-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      検索
+    </a>
   </div>
-</div>
 
-<div class="search-info mb-2 d-flex align-items-center justify-content-between">
-  <%= "所属人数：#{@users.count}人" %>
-  <a class="btn btn-sm btn-outline-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    検索
-  </a>
-</div>
+  <div class="search text-left bg-light collapse has-shadow-1 mt-4 w-100" id="collapseExample">
 
-<div class="search text-left bg-light collapse" id="collapseExample">
+    <%= search_form_for @q do |f| %>
 
-  <%= search_form_for @q do |f| %>
+      <div class="field">
+        <%= f.search_field :nickname_cont, placeholder: "ニックネーム", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :nickname, "ニックネーム：" %>
-      <%= f.search_field :nickname_cont %>
-    </div>
+      <div class="field ml-1">
+        <%= f.radio_button :gender_eq, '', {:checked => true} %> 指定なし
+        <%= f.radio_button :gender_eq, '男', class: "ml-1" %> 男性
+        <%= f.radio_button :gender_eq, '女', class: "ml-1" %> 女性
+      </div>
 
-    <div class="field gender">
-      <%= f.label :gender, "性別：" %>
-      <%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
-      <%= f.radio_button :gender_eq, '男' %>男性
-      <%= f.radio_button :gender_eq, '女' %>女性
-    </div>
+      <div class="field">
+        <%= f.search_field :college_cont, placeholder: "大学名", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :college, "大学名：" %>
-      <%= f.search_field :college_cont %>
-    </div>
+      <div class="field">
+        <%= f.number_field :grade_gteq, min: 1, max: 4, class: "number ml-1" %> 回生以上〜
+        <%= f.number_field :grade_lteq, min: 1, max: 4, class: "number ml-1" %> 回生以下
+      </div>
 
-    <div class="field">
-      <%= f.label :grade, "回生：" %>
-      <%= f.number_field :grade_gteq, min: 1, max: 4 %>以上〜
-      <%= f.number_field :grade_lteq, min: 1, max: 4 %>以下
-    </div>
+      <div class="field">
+        <%= f.label :executive, "幹部：", class: "ml-1" %>
+        <%= f.check_box :executive_eq, {},checked_value = "true", unchecked_value = "" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :executive, "幹部：" %>
-      <%= f.check_box :executive_eq, {},checked_value = "true", unchecked_value = "" %>
-    </div>
-
-    <div class="field mb-0 text-center">
-      <%= f.submit "検索" , class: "ml-0"%>
-    </div>
-  <% end %>
-
-</div>
-
-
-<table class="table table-hover mt-4 mb-4">
-  <thead>
-    <tr>
-      <th></th>
-      <th><%= sort_link(@q, :nickname, "ニックネーム") %></th>
-      <%# <th>性別</th> %>
-      <%# <th>大学</th> %>
-      <th><%= sort_link(@q, :grade, "回生") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= attachment_image_tag(user, :profile_image,format: 'jpeg') %></td>
-        <td><%=link_to user.nickname, user_path(user) %></td>
-        <td><%= user.grade %></td>
-      </tr>
+      <div class="field mb-0 text-center">
+        <%= f.submit "検索" , class: "btn btn-sm btn-block btn-primary"%>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
+  </div>
+
+
+  <table class="table table-hover mt-4 mb-4">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= sort_link(@q, :nickname, "ニックネーム") %></th>
+        <%# <th>性別</th> %>
+        <%# <th>大学</th> %>
+        <th><%= sort_link(@q, :grade, "回生") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag(user, :profile_image,format: 'jpeg') %></td>
+          <td><%=link_to user.nickname, user_path(user) %></td>
+          <td><%= user.grade %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

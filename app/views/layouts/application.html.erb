@@ -13,11 +13,13 @@
 
   <body>
   <div class="header">
-    <nav class="navbar navbar-expand-lg fixed-top pt-0 pb-0">
+    <nav class="bg-light navbar navbar-expand-lg fixed-top pt-2 pb-2">
       <a class="navbar-brand logo" href="/">
         <%= image_tag 'big.jpg', class: "header-logo" %>
-        Tee
       </a>
+      <div class="heade-title">
+        <h3 class="mb-0">Tee Official Site</h3>
+      </div>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
           <i class="fas fa-bars"></i>
@@ -32,19 +34,23 @@
             <%= link_to '活動紹介', events_path, class: "nav-link" %>
           </li>
           <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
+            <% if current_user.active? %>
+              <li class="nav-item">
+                <%= link_to 'メンバー', users_path, class: "nav-link" %>
+              </li>
+            <% end %>
+              <li class="nav-item">
+                <%= link_to 'マイページ', user_path(current_user), class: "nav-link" %>
+              </li>  
             <% if current_user.admin? %>
               <li class="nav-item">
                 <%= link_to '管理者ページ', '/admin', class: "nav-link" %>
               </li>
             <% end %>
-            <% if current_user.active? %>
-              <li class="nav-item">
-                <%= link_to 'ユーザ一覧', users_path, class: "nav-link" %>
-              </li>
-            <% end %>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+
           <% else %>
             <li class="nav-item">
               <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
@@ -60,13 +66,11 @@
 
 
 
-    <div class="container">
-      <div class="top">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
-        <%= yield %>
-      </div>
+    <div class="container top">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <%= yield %>
     </div>
   </body>
 </html>

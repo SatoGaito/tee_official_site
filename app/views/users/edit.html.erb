@@ -1,32 +1,54 @@
-<%= form_for @user do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, autofocus: true %>
+<div class="row">
+  <div class="profile-edit has-shadow-1 w-100 mt-4">
+    <div class="form-header text-center pt-4 pb-4">
+      <h2 class="mb-0">プロフィール編集</h2>
+    </div>
+    <div class="form-body">
+      <%= form_for @user do |f| %>
 
-  <%= f.label :nickname %>
-  <%= f.text_field :nickname, autofocus: true %>
+        <div class="field">
+          <%= f.text_field :name, autofocus: true, placeholder: "フルネーム", class: "form-control" %>
+        </div>
 
-  <%= f.label :gender %>
-  <%= f.radio_button :gender, "男" %>男
-  <%= f.radio_button :gender, "女" %>女
+        <div class="field">
+          <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "form-control" %>
+        </div>
 
-  <%= f.label :college %>
-  <%= f.text_field :college, autofocus: true %>
+        <div class="field">
+          <%= f.radio_button :gender, "男", class: "ml-2" %> 男
+          <%= f.radio_button :gender, "女", class: "ml-3" %> 女
+        </div>
 
-  <%= f.label :grade %>
-  <%= f.number_field :grade, min: 1, max: 4, autofocus: true %>
+        <div class="field">
+          <%= f.text_field :college, autofocus: true, placeholder: "大学", class: "form-control" %>
+        </div>
 
-  <%= f.label :profile_image %>
-  <%= f.attachment_field :profile_image %>
-  
-  <%= f.label :introduction %>
-  <%= f.text_area :introduction, autofocus: true %>
+        <div class="field">
+          <%= f.number_field :grade, min: 1, max: 4, autofocus: true, class: "ml-1 number" %> 回生
+        </div>
 
-  <%= f.label :active %>
-  <%= f.check_box :active, :as => :boolean %>
+        <div class="field">
+          <%= f.label :profile_image, "プロフィール画像：" %>
+          <%= f.attachment_field :profile_image %>
+        </div>
 
-  <%= f.label :executive %>
-  <%= f.check_box :executive, :as => :boolean %>
+        <div class="field">
+          <%= f.text_area :introduction, autofocus: true, placeholder: "自己紹介", class: "form-control introduction" %>
+        </div>
 
-  <%= f.submit "保存" %>
-<% end %>
+        <div class="field">
+          <%= f.label :active %>
+          <%= f.check_box :active, :as => :boolean, class: "mr-3" %>
+
+          <%= f.label :executive, "幹部" %>
+          <%= f.check_box :executive, :as => :boolean %>
+        </div>
+
+        <div class="field">
+          <%= f.submit "保存", class: "btn btn-lg btn-block btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
