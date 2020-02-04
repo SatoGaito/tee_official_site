@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger w-100 mb-0" role="alert">
+    <h4><%= pluralize(@user.errors.count, "") %>つのエラーがあります。</h4>
+    <ul class="pl-4">
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

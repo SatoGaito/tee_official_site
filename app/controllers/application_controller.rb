@@ -5,9 +5,14 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "登録完了しました。プロフィール登録をお願いします。" 
       edit_user_path(current_user)
     else
-      flash[:notice] = "ログインに成功しました" 
+      flash[:notice] = "ログインに成功しました。" 
       user_path(current_user)  
     end
+  end
+
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました。"   
+    root_path
   end
 
 end

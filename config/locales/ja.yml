@@ -1,0 +1,42 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      event: 活動
+      event_comment: 活動コメント
+    attributes:
+      user:
+        name: 名前
+        nickname: ニックネーム
+        gender: 性別
+        college: 大学
+        grade: 回生
+        introduction: 自己紹介
+        executive: 幹部
+        active: アクティブ
+        admin: 管理者
+        profile_image_id: プロフィール画像
+        email: メールアドレス
+        password: パスワード
+        created_at: 作成日
+        updated_at: 更新日
+        event_comments: 活動コメント
+        events: 活動
+      event:
+        title: 活動名
+        date: 日付
+        content: 内容
+        event_image_id: 活動写真
+        user: ユーザー
+        event_comments: 活動コメント
+        created_at: 作成日
+        updated_at: 更新日
+      event_comment:
+        comment: コメント
+        event: 活動
+        user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
+
+
+

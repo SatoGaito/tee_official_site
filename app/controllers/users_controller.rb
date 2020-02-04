@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @users = User.all
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
   end
@@ -19,9 +18,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "更新を完了しました。"
+    else
+      render :edit
+    end
   end
 
   private
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
 
   def non_active_user
     unless user_signed_in? && current_user.active?
-      flash[:notice] = "アカウントがactiveではありません"
+      flash[:notice] = "アカウントがアクティブではありません"
       redirect_to '/'
     end
   end

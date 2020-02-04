@@ -12,10 +12,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(event_params)
-    event.user_id = current_user.id
-    event.save
-    redirect_to events_path
+    @event = Event.new(event_params)
+    @event.user_id = current_user.id
+    if @event.save
+      redirect_to events_path, notice: "投稿を完了しました。"
+    else
+      render :new
+    end
   end
 
   def show
@@ -28,16 +31,18 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
-    event.update(event_params)
-    # event.user_id = current_user.id
-    redirect_to event_path(event)
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: "更新を完了しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
     event = Event.find(params[:id])
     event.delete
-    redirect_to events_path
+    redirect_to events_path, notice: "投稿を削除しました。"
   end
 
   private

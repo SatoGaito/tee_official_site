@@ -42,7 +42,7 @@
             <div class="comment-top d-flex flex-row align-items-center mb-2">
               <div class="comment-avatar mr-3">
                 <div class="avatar">
-                  <%= attachment_image_tag(event_comment.user, :profile_image, format: 'jpeg') %>
+                  <%= attachment_image_tag(event_comment.user, :profile_image, format: 'jpeg', fallback: "big.jpg", size:'40x40') %>
                 </div>
               </div>
               <div class="comment-nickname">
