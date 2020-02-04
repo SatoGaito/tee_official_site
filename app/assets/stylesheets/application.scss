@@ -226,9 +226,18 @@ a {
 
 }
 
-// event-new
 
+.nav-item {
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+  }
 
+  .navbar-toggler {
+    font-size: 1rem;
+  }
+}
 
 
 
