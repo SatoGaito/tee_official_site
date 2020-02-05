@@ -19,6 +19,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    ActiveRecord::Base.transaction do
+      unless @user.save
+        render :new and return
+      end
+      if params[:user][:image].present?
+        @user.image.attach(params[:user][:image])
+      end
+    end
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "更新を完了しました。"
     else
