@@ -47,15 +47,19 @@
       <tr>
         <th></th>
         <th><%= sort_link(@q, :nickname, "ニックネーム") %></th>
-        <%# <th>性別</th> %>
-        <%# <th>大学</th> %>
         <th><%= sort_link(@q, :grade, "回生") %></th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= attachment_image_tag(user, :profile_image,format: 'jpeg', fallback: "big.jpg", size:'40x40') %></td>
+          <td>      
+            <% if user.image.attached? %>
+              <%= image_tag user.image %>
+            <% else %>
+              <%= image_tag 'big.jpg' %>
+            <% end %>
+          </td>
           <td><%=link_to user.nickname, user_path(user) %></td>
           <td><%= user.grade %></td>
         </tr>

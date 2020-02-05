@@ -31,7 +31,11 @@
             <%= link_to 'Teeについて', homes_about_path, class: "nav-link" %>
             <% if user_signed_in? %>
               <%= link_to(user_path(current_user)) do %>
-                <%= attachment_image_tag(current_user, :profile_image, format: 'jpeg', fallback: "big.jpg", size:'50x50', class: "nav-link navbar-toggler mr-4") %>
+                <% if current_user.image.attached? %>
+                  <%= image_tag current_user.image %>
+                <% else %>
+                  <%= image_tag 'big.jpg' %>
+                <% end %>
               <% end %>
             <% end %>
           </li>
