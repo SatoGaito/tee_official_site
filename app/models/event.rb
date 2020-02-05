@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
 
   has_one_attached :e_image
-  attachment :event_image
   belongs_to :user
   has_many :event_comments, dependent: :destroy
 
