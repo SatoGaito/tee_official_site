@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).with_attached_image
+    @user = User.find(params[:id])
   end
 
   def edit
