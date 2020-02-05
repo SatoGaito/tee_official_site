@@ -31,7 +31,7 @@
             <%= link_to 'Teeについて', homes_about_path, class: "nav-link" %>
             <% if user_signed_in? %>
               <%= link_to(user_path(current_user)) do %>
-                <% if current_user.image.attached? %>
+                <% if current_user.p_image.attached? %>
                   <%= image_tag current_user.p_image, class: "nav-link navbar-toggler" %>
                 <% else %>
                   <%= image_tag 'big.jpg', class: "nav-link navbar-toggler" %>
