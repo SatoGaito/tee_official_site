@@ -15,7 +15,7 @@ ja:
         executive: 幹部
         active: アクティブ
         admin: 管理者
-        profile_image_id: プロフィール画像
+        p_image: プロフィール画像
         email: メールアドレス
         password: パスワード
         created_at: 作成日
@@ -26,7 +26,7 @@ ja:
         title: 活動名
         date: 日付
         content: 内容
-        event_image_id: 活動写真
+        e_image: 活動写真
         user: ユーザー
         event_comments: 活動コメント
         created_at: 作成日
