@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.image.purge
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "更新を完了しました。"
     else
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :nickname, :gender, :college, :grade, :introduction, :profile_image, :active, :executive, :image)
+    params.require(:user).permit(:name, :nickname, :gender, :college, :grade, :introduction, :profile_image, :active, :executive,  images: [])
   end
 
   def ensure_correct_user
