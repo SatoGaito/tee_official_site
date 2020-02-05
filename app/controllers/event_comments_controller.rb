@@ -9,7 +9,7 @@ class EventCommentsController < ApplicationController
       comment = current_user.event_comments.new(event_comment_params)
       comment.event_id = event.id
       if comment.save
-        redirect_to event_path(event), notice: "投稿が完了しました。"
+        redirect_to event_path(event), notice: "コメントの投稿が完了しました。"
       else 
         redirect_to event_path(event), notice: "コメントを入力してください。"
       end
@@ -19,7 +19,7 @@ class EventCommentsController < ApplicationController
   def destroy
     comment = EventComment.find_by(id: params[:id], event_id: params[:event_id])
     comment.delete
-    redirect_to event_path(comment.event_id), notice: "コメントを削除しました。"
+    redirect_to event_path(comment.event_id), notice: "コメントの投稿を削除しました。"
   end
 
   private

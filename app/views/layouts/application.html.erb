@@ -32,9 +32,9 @@
             <% if user_signed_in? %>
               <%= link_to(user_path(current_user)) do %>
                 <% if current_user.image.attached? %>
-                  <%= image_tag current_user.image %>
+                  <%= image_tag current_user.p_image, class: "nav-link navbar-toggler" %>
                 <% else %>
-                  <%= image_tag 'big.jpg' %>
+                  <%= image_tag 'big.jpg', class: "nav-link navbar-toggler" %>
                 <% end %>
               <% end %>
             <% end %>
@@ -42,7 +42,7 @@
           <li class="nav-item d-flex justify-content-between align-items-center">
             <%= link_to '活動紹介', events_path, class: "nav-link" %>
             <% if user_signed_in? %>
-              <%= link_to current_user.name, user_path(current_user), class: "nav-link navbar-toggler mr-3" %>
+              <%= link_to current_user.name, user_path(current_user), class: "nav-link navbar-toggler" %>
             <% end %>
           </li>
           <% if user_signed_in? %>

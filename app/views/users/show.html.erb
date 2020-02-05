@@ -4,7 +4,7 @@
   <div class="profile-top">
     <div class="profile-image mb-4">
       <% if @user.image.attached? %>
-        <%= image_tag @user.image %>
+        <%= image_tag @user.p_image %>
       <% else %>
         <%= image_tag 'big.jpg' %>
       <% end %>

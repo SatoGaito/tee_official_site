@@ -43,7 +43,7 @@
               <div class="comment-avatar mr-3">
                 <div class="avatar">
                   <% if event_comment.user.image.attached? %>
-                    <%= image_tag event_comment.user.image %>
+                    <%= image_tag event_comment.user.p_image %>
                   <% else %>
                     <%= image_tag 'big.jpg' %>
                   <% end %>
