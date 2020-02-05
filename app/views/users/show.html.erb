@@ -3,9 +3,7 @@
 <div class="profile w-100">
   <div class="profile-top">
     <div class="profile-image mb-4">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.image %>
-      <% end %>
+      <%= image_tag @user.image %>
     </div>
     <div class="nickname">
       <h3><%= @user.nickname %></h3>
