@@ -4,9 +4,7 @@
   <div class="profile-top">
     <div class="profile-image mb-4">
       <% if @user.image.attached? %>
-        <% @user.images.each do |image|%>
-          <%= image_tag @user.image %>
-        <% end %>
+        <%= image_tag @user.image %>
       <% end %>
     </div>
     <div class="nickname">
