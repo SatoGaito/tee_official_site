@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).with_attached_image
   end
 
   def edit
@@ -19,13 +19,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    ActiveRecord::Base.transaction do
-      unless @user.save
-        render :new and return
-      end
-      if params[:user][:image].present?
-        @user.image.purge
-      end
+    if params[:user][:image].present?
+      @user.image.purge
     end
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "更新を完了しました。"
