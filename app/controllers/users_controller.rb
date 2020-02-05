@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         render :new and return
       end
       if params[:user][:image].present?
-        @user.image.attach(params[:user][:image])
+        @user.image.purge
       end
     end
     if @user.update(user_params)
