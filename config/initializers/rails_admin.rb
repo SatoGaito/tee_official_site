@@ -39,5 +39,4 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.excluded_models = ['ActiveStorage::Blob', 'ActiveStorage::Attachment']
 end
