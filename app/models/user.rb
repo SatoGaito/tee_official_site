@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one_attached :p_image
-  attachment :profile_image
   has_many :event_comments, dependent: :destroy
   has_many :events, dependent: :destroy
 
