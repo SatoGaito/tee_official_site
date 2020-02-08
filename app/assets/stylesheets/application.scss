@@ -204,7 +204,7 @@ a {
 
 .row {
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 20px 0;
 }
 
 .field {
@@ -234,7 +234,112 @@ a {
 }
 
 
+/* ボタン全体 */
+.flowbtn12{
+  font-family:'Verdana',sans-serif;	
+  border-radius: 4px;
+  display:inline-block;
+  width:90%;
+  font-size:20px;
+  transition:.4s;	
+  text-decoration:none;
+  }
+  /* ボタン内テキストマウスホバー時 */
+  .flowbtn12:hover{
+  color:#fff!important;
+  text-decoration:none;
+  }
+  /* Twitter */
+  .flowbtn12.fl_tw2{
+  border:solid 1px #55acee;
+  color:#55acee;
+  }
+  /* Twitterマウスホバー時 */
+  .flowbtn12.fl_tw2:hover{
+  border:solid 1px #55acee;
+  background:#55acee;
+  }
+  /* Instagram */
+  .flowbtn12.insta_btn2{
+  border:solid 1px #c6529a;
+  color:#c6529a;
+  }
+  /* Instagramマウスホバー時 */
+  .flowbtn12.insta_btn2:hover{
+  border:solid 1px #c6529a;
+  background:#c6529a;
+  }
+  /* LINE */
+  .flowbtn12.fl_li2{
+  border:solid 1px #00c300;
+  color:#00c300;
+  }
+  /* LINEマウスホバー時 */
+  .flowbtn12.fl_li2:hover{
+  border:solid 1px #00c300;
+  background:#00c300;
+  }
+  /* ボタン内テキスト調整 */
+  .flowbtn12 span{
+  font-size:14px;	
+  position:relative;
+  left:8px;
+  bottom:2px;	
+  }
+  /* ulタグの内側余白を０にする */
+  ul.snsbtniti2{
+  padding:0!important;
+  }
+  /* ボタン全体の位置 */
+  .snsbtniti2{
+  display:flex;
+  flex-flow:row wrap;
+  }
+  /* ボタン同士の余白 */
+  .snsbtniti2 li{
+  flex:0 0 48%;
+  text-align:center !important;
+  list-style: none;
+  margin-bottom: 10px;
+  }
 
+  .cta {
+
+    .btn {
+      width: 48%;
+      color: #fff;
+      border-bottom: 4px solid rgba(0,0,0,0.15);
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        transform: translateY(4px);
+        border-bottom: none;
+      }
+    }
+
+    .login-btn {
+      background-color: #F89FA1;
+    }
+
+    .sign-up-btn {
+      background-color: #40C0CB;
+    }
+
+    .about-btn {
+      background-color: #C02942;
+    }
+
+    .event-btn {
+      background-color: #1693A5;
+    }
+  }
+
+  .fa-angle-double-down , .fa-angle-double-up{
+    color: orange;
+  }
 
 
 

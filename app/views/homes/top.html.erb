@@ -1,9 +1,65 @@
 <div class="row">
-  <h1>
-    Welcome to<br>
-    Tee Web Site
-  </h1>
-  <h2>We are Tee!!</h2>
+
+  <div class="main mb-4 w-100 text-center">
+    <h1 class="mb-0">
+      Welcome to<br>
+      Tee Web Site<br>
+      We are Tee!!
+    </h1>
+  </div>
+
+  <div class="cta w-100 text-center mb-4">
+    <%= link_to 'ログイン', new_user_session_path, class: "btn login-btn" %>
+    <%= link_to 'サインアップ', new_user_registration_path, class: "btn sign-up-btn" %>
+  </div>
+
+  <div class="text-center w-100">
+    <p> 
+      <i class="fas fa-angle-double-up"></i>　Teeのメンバーの方は　<i class="fas fa-angle-double-up"></i><br>
+      ログインまたはサインアップしてください<br>
+      <br>
+      まだ所属してない方はこちら<br>
+      <i class="fas fa-angle-double-down"></i>
+    </p>
+  </div>
+
+  <div class="cta w-100 text-center mb-4">
+    <%= link_to 'Teeについて', homes_about_path, class: "btn about-btn" %>
+    <%= link_to '活動紹介', events_path, class: "btn event-btn" %>
+  </div>
+
+  <div class=" text-center w-100">
+    <p>
+      何か聞きたいことや相談がある方は<br>
+      DMやLine@などで気軽にご連絡下さい。<br>
+      <i class="fas fa-angle-double-down"></i>
+    </p>
+  </div>
+
+  <ul class="snsbtniti2 w-100 d-flex mb-0 justify-content-between">
+    <li>
+      <a  href="https://twitter.com/tee_01060106" target="_blank" class="flowbtn12 fl_tw2">
+        <i class="fab fa-twitter"></i><span>Twitter</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/tee_0106/" target="_blank" class="flowbtn12 insta_btn2">
+        <i class="fab fa-instagram"></i><span>Instagram</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="flowbtn12 fl_li2">
+        <i class="fab fa-line"></i><span>LINE＠</span>
+      </a>
+    </li>  
+    <li>
+      <a href="#" class="flowbtn12 fl_li2">
+        <i class="fab fa-line"></i><span>LINE＠</span>
+      </a>
+    </li>
+  </ul>
+
 </div>
+
 
 
