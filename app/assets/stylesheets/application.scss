@@ -16,8 +16,9 @@
 
 @import "bootstrap";
 
+// Common
+
 body {
-  line-height: 1.5;
   color: #555;
   font-family: 'Lato', sans-serif;
 
@@ -37,35 +38,29 @@ body {
 
 .container {
   margin-top: 80px;
+  background-color: rgba(255,255,255,0.7);
+  min-height: 100vh;
+}
+
+
+.row {
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 a {
   color: #555;
 }
 
-.tc-5 {
-  color: #555;
+li {
+  list-style: none;
 }
 
-.carousel {
-  width: 100%;
-  padding: 50px 0;
+.has-shadow-1 {
+  box-shadow: 0px 6px 20px 0px #a1a1a1;
 }
 
-
-.carousel-item img {
-  width:100%;
-  max-width: 100%;
-  height: auto;
-  padding: .25rem;
-  border: 1px solid #dee2e6;
-  border-radius: .25rem;
-}
-
-
-.navbar {
-  border: 1px solid #EEE;
-}
+// header
 
 .header-logo {
   height: 50px;
@@ -76,16 +71,41 @@ a {
   font-size: 30px;
 }
 
-.top {
-  background-color: rgba(255,255,255,0.7);
-  min-height: 100vh;
+.nav-item {
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+  }
+
+  .navbar-toggler {
+    font-size: 1rem;
+  }
 }
+
+// footer
 
 .footer {
   margin-top: auto;
 }
 
+// AboutPage
 
+.carousel {
+  width: 100%;
+  padding: 50px 0;
+}
+
+.carousel-item {
+  img {
+    width:100%;
+    max-width: 100%;
+    height: auto;
+    padding: .25rem;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+  }
+}
 
 // event-index
 
@@ -101,7 +121,6 @@ a {
   }
 
 }
-
 
 // event-show
 
@@ -124,25 +143,12 @@ a {
   }
 }
 
-.mr-auto {
-  text-align: left;
-}
-
-.delete {
-  white-space: nowrap;
-}
-
-.comment-form {
-  width: 100%;
-}
-
 .text-area {
   height: 38px;
   border-radius: 0.25rem;
 }
 
-
-// user-index 
+// table
 
 .table {
   text-align: center;
@@ -160,17 +166,7 @@ a {
   vertical-align: middle;
   }
 
-.search {
-  padding: 15px;
-  border: 1px solid  #ecf0f1;
-
-}
-
 // user-show
-
-.profile {
-  text-align: center;
-}
 
 .profile-image {
   img {
@@ -180,14 +176,7 @@ a {
   }
 }
 
-// user-edit
-
-.profile-edit {
-  color: #333333;
-  border: 1px solid #ecf0f1;
-}
-
-// common
+// form
 
 .form-header {
   background-color: #ecf0f1;
@@ -196,21 +185,10 @@ a {
   border-top-right-radius: 2px;
 }
 
-.has-shadow-1 {
-  box-shadow: 0px 6px 20px 0px #a1a1a1;
-}
-
 .form-body {
   padding: 15px;
   background-color: #ffffff;
 
-}
-
-
-
-.row {
-  margin: 0 auto;
-  padding: 20px 0;
 }
 
 .field {
@@ -223,19 +201,6 @@ a {
 
   textarea {
     height: 250px;
-  }
-}
-
-
-.nav-item {
-  img {
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-  }
-
-  .navbar-toggler {
-    font-size: 1rem;
   }
 }
 
@@ -305,9 +270,10 @@ a {
   .snsbtniti2 li{
   flex:0 0 48%;
   text-align:center !important;
-  list-style: none;
   margin-bottom: 10px;
   }
+
+// home
 
 .cta {
 
@@ -355,6 +321,23 @@ a {
     width: 40px; 
     height: 40px;
     border-radius: 100%;
+  }
+}
+
+.tweet-name {
+  font-size: 12px;
+}
+
+.tweet-date {
+  font-size: 5px;
+}
+
+// tweet-show
+
+.tweet-user {
+  img {
+    height: 30px;
+    width: 30px;
   }
 }
 

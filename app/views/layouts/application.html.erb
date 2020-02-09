@@ -13,7 +13,7 @@
 
   <body ontouchstart="">
   <div class="header">
-    <nav class="bg-light navbar navbar-expand-lg fixed-top pt-2 pb-2">
+    <nav class="bg-light navbar navbar-expand-lg fixed-top pt-2 pb-2 border-top border-bottom">
       <a class="navbar-brand logo" href="/">
         <%= image_tag 'big.jpg', class: "header-logo" %>
       </a>
@@ -79,14 +79,14 @@
 
 
 
-    <div class="container top">
+    <div class="container">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
       <% end %>
       <%= yield %>
     </div>
 
-  <div class="footer text-center bg-light p-4 border w-100">
+  <div class="footer text-center bg-light p-4 border-top border-bottom w-100">
     © 2020 created by Gaito
   </div>
 

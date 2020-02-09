@@ -1,13 +1,49 @@
 <div class="row">
-  <div class="tweet-index">
-    <% if @tweet.user.p_image.attached? %>
-      <%= image_tag @tweet.user.p_image %>
-    <% else %>
-      <%= image_tag 'big.jpg' %>
+
+  <div class="w-100 text-center mb-4">
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <%= link_to '編集', edit_tweet_path, class: "btn btn-sm btn-outline-success mr-2" %>
+      <%= link_to '削除', tweet_path, class: "btn btn-sm btn-outline-success", method: :delete,"data-confirm" => "本当に消しますか？" %>
     <% end %>
-    <%= @tweet.user.nickname %>
-    <%= @tweet.tweet %>
-    <%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
+  </div>
+
+  <div class="tweet-index mb-4 w-100 has-shadow-1 bg-white p-4">
+    <div class="tweet-content mb-4">
+      <%= safe_join(@tweet.tweet.split("\n"), tag(:br)) %>
+      <div class="text-right">
+        <i class="far fa-clock mr-1 ml-1"></i><%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
+      </div>
+    </div>
+
+    <div class="tweet-user d-flex justify-content-between align-items-center">
+
+      <% if @tweet.favorited_by?(current_user) %>
+        <li>
+          <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
+            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+            <%= @tweet.favorites.count %> いいね
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to tweet_favorites_path(@tweet), method: :post do %>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+            <%= @tweet.favorites.count %> いいね
+          <% end %>
+        </li>
+      <% end %>
+
+      <%= link_to(user_path(@tweet.user)) do %>
+        <% if @tweet.user.p_image.attached? %>
+          <%= image_tag @tweet.user.p_image %>
+        <% else %>
+          <%= image_tag 'big.jpg' %>
+        <% end %>
+        <%= @tweet.user.nickname %>
+      <% end %>
+
+    </div>
+
   </div>
 
   <div class="comment-section text-center w-100">
@@ -57,24 +93,8 @@
     </div>
   </div>
 
-  <% if @tweet.favorited_by?(current_user) %>
-  <li>
-    <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      <%= @tweet.favorites.count %> いいね
-    <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to tweet_favorites_path(@tweet), method: :post do %>
-      <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <%= @tweet.favorites.count %> いいね
-    <% end %>
-  </li>
-<% end %>
-
   <% if user_signed_in? && current_user.active? %>
-    <div class="comment-form text-center">
+    <div class="comment-form text-center w-100">
       <div class="mb-2">【コメントフォーム】</div>
         <%= form_for [@tweet, @tweet_comment] do |f| %>
           <div class="d-flex">

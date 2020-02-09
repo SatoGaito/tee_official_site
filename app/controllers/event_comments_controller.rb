@@ -19,7 +19,7 @@ class EventCommentsController < ApplicationController
   def destroy
     comment = EventComment.find_by(id: params[:id], event_id: params[:event_id])
     comment.delete
-    redirect_to event_path(comment.event_id), notice: "コメントの投稿を削除しました。"
+    redirect_to event_path(comment.event_id), notice: "コメントを削除しました。"
   end
 
   private

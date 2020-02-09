@@ -4,6 +4,9 @@ ja:
       user: ユーザー
       event: 活動
       event_comment: 活動コメント
+      tweet: ツイート
+      tweet_comment: ツイートコメント
+      favorite: いいね
     attributes:
       user:
         name: 名前
@@ -22,6 +25,9 @@ ja:
         updated_at: 更新日
         event_comments: 活動コメント
         events: 活動
+        tweet_comments: ツイートコメント
+        tweets: ツイート
+        favorites: いいね
       event:
         title: 活動名
         date: 日付
@@ -37,6 +43,29 @@ ja:
         user: ユーザー
         created_at: 作成日
         updated_at: 更新日
+      tweet:
+        tweet: ツイート
+        user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
+        tweet_comments: ツイートコメント
+        favorites: いいね
+      tweet_comment:
+        comment: コメント
+        tweet: ツイート
+        user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
+      favorite:
+        tweet: ツイート
+        user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
+
+
+
+
+
 
 
 
