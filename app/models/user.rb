@@ -13,5 +13,5 @@ class User < ApplicationRecord
 
   validates :name, :nickname, :college, presence: true, length: { minimum: 2, maximum: 10 }, on: :update
   validates :grade, :gender, presence: true, on: :update
-  validates :introduction, presence: true, length: { minimum: 50, maximum: 300 }, on: :update
+  validates :introduction, presence: true, length: { minimum: 50, maximum: 1000 }, on: :update
 end
