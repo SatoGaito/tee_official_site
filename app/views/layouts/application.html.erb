@@ -52,7 +52,7 @@
                 <%= link_to current_user.email, user_path(current_user), class: "nav-link navbar-toggler" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'つぶやき', tweets_path, class: "nav-link" %>
+                <%= link_to 'ツイート', tweets_path, class: "nav-link" %>
               </li>
             <% end %>
             <% if current_user.admin? %>
