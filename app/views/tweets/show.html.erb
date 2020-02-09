@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="tweet-index">
+    <% if @tweet.user.p_image.attached? %>
+      <%= image_tag @tweet.user.p_image %>
+    <% else %>
+      <%= image_tag 'big.jpg' %>
+    <% end %>
+    <%= @tweet.user.nickname %>
+    <%= @tweet.tweet %>
+    <%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
+  </div>
+
+  <div class="comment-section text-center w-100">
+
+    <div class="comment-count">
+      <%= "【コメント：#{@tweet.tweet_comments.count}件】" %>
+    </div>
+
+    <div class="comment-content">
+      <% @tweet.tweet_comments.each do |tweet_comment| %>
+        <div class="comment">
+        <hr>
+          <div class="comment-body">
+            <div class="comment-top d-flex flex-row align-items-center mb-2">
+              <div class="comment-avatar mr-3">
+                <div class="avatar">
+                  <% if tweet_comment.user.p_image.attached? %>
+                    <%= image_tag tweet_comment.user.p_image %>
+                  <% else %>
+                    <%= image_tag 'big.jpg' %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="comment-nickname">
+                <%= link_to tweet_comment.user.nickname, user_path(tweet_comment.user) %>
+              </div>
+            </div>
+            <div class="commnt-bottom">
+              <div class="comment-text d-flex flex-row align-items-center mb-2">
+                <i class="far fa-comment-dots mr-3 ml-3"></i>
+                <span class="mr-auto"><%= safe_join(tweet_comment.comment.split("\n"), tag(:br)) %></span>
+                <% if user_signed_in? && current_user.id == tweet_comment.user_id %>
+                  <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn btn-sm btn-success" %> 
+                <% end %>
+              </div>
+              <div class="comment-date d-flex flex-row align-items-center">
+                <i class="far fa-clock mr-3 ml-3"></i>
+                <%= tweet_comment.created_at.strftime('%Y/%m/%d/%R') %>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      <% end %>
+      <hr>
+    </div>
+  </div>
+
+  <% if @tweet.favorited_by?(current_user) %>
+  <li>
+    <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= @tweet.favorites.count %> いいね
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to tweet_favorites_path(@tweet), method: :post do %>
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <%= @tweet.favorites.count %> いいね
+    <% end %>
+  </li>
+<% end %>
+
+  <% if user_signed_in? && current_user.active? %>
+    <div class="comment-form text-center">
+      <div class="mb-2">【コメントフォーム】</div>
+        <%= form_for [@tweet, @tweet_comment] do |f| %>
+          <div class="d-flex">
+            <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
+            <%= f.submit "送信する", class: "btn btn-success mb-2" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

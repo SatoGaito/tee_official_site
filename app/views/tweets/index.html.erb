@@ -1,0 +1,19 @@
+<div class="row">
+
+  <% if user_signed_in? && current_user.active? %>
+    <%= link_to 'つぶやく', new_tweet_path, class: "btn btn-sm btn-outline-success mr-auto ml-auto" %>
+  <% end %>
+
+  <div class="tweet-index">
+    <% @tweets.each do |tweet| %>
+      <% if tweet.user.p_image.attached? %>
+        <%= image_tag tweet.user.p_image %>
+      <% else %>
+        <%= image_tag 'big.jpg' %>
+      <% end %>
+      <%= tweet.user.nickname %>
+      <%= link_to tweet.tweet, tweet_path(tweet) %>
+      <%= tweet.created_at.strftime('%Y/%m/%d/%R') %>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_194208) do
+ActiveRecord::Schema.define(version: 2020_02_09_070736) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,28 @@ ActiveRecord::Schema.define(version: 2020_02_05_194208) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweet_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "tweet_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.text "tweet"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 # Could not dump table "users" because of following StandardError

@@ -17,11 +17,6 @@
 @import "bootstrap";
 
 body {
-  // background: radial-gradient(ellipse at center, rgba(255,255,255,0) 40%,rgba(255,255,255,0.5) 60%,rgba(255,255,255,1) 100%),url(top1.jpg);
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-position: center;
   line-height: 1.5;
   color: #555;
   font-family: 'Lato', sans-serif;
@@ -314,43 +309,56 @@ a {
   margin-bottom: 10px;
   }
 
-  .cta {
+.cta {
 
-    .btn {
-      width: 48%;
-      color: #fff;
-      border-bottom: 4px solid rgba(0,0,0,0.15);
+  .btn {
+    width: 48%;
+    color: #fff;
+    border-bottom: 4px solid rgba(0,0,0,0.15);
 
-      &:hover {
-        opacity: 0.8;
-      }
-
-      &:active {
-        transform: translateY(4px);
-        border-bottom: none;
-      }
+    &:hover {
+      opacity: 0.8;
     }
 
-    .login-btn {
-      background-color: #F89FA1;
-    }
-
-    .sign-up-btn {
-      background-color: #40C0CB;
-    }
-
-    .about-btn {
-      background-color: #C02942;
-    }
-
-    .event-btn {
-      background-color: #1693A5;
+    &:active {
+      transform: translateY(4px);
+      border-bottom: none;
     }
   }
 
-  .fa-angle-double-down , .fa-angle-double-up{
-    color: orange;
+  .login-btn {
+    background-color: #F89FA1;
   }
+
+  .sign-up-btn {
+    background-color: #40C0CB;
+  }
+
+  .about-btn {
+    background-color: #C02942;
+  }
+
+  .event-btn {
+    background-color: #1693A5;
+  }
+}
+
+.fa-angle-double-down , .fa-angle-double-up{
+  color: orange;
+}
+
+
+// tweet-index 
+
+.tweet-index {
+  img {
+    width: 40px; 
+    height: 40px;
+    border-radius: 100%;
+  }
+}
+
+
 
 
 
