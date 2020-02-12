@@ -1,12 +1,27 @@
 <div class="row">
 
-  <div class="main mb-4 w-100 text-center">
+  <div class="main w-100 mb-4">
+    <div class="home-inner">
+      <div class="caption">
+      <h1>関西インカレサークルTee</h1>
+      <p>毎月6日と18日と第4金曜に活動中！<br>
+      当サークルは学生のみで構成しており、<br>
+      近畿圏のいろんな大学の学生がいます！！<br>
+      新入生に限らずまだサークルに入れてないっていう2,3回生も募集してますよ～！</p>
+      <%= link_to "詳細はこちら", homes_about_path, class: "btn btn-light " %>
+      </div>
+    </div>
+  </div>
+
+
+
+  <%# <div class="main mb-4 w-100 text-center">
     <h1 class="mb-0">
       Welcome to<br>
       Tee Web Site<br>
       We are Tee!!
     </h1>
-  </div>
+  </div> %>
 
   <div class="cta w-100 text-center mb-4">
     <%= link_to 'ログイン', new_user_session_path, class: "btn login-btn" %>
