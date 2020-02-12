@@ -28,6 +28,37 @@
     <%= link_to '活動紹介', events_path, class: "btn event-btn" %>
   </div>
 
+  <div class="calender-index w-100">
+
+    <div class="w-100 text-center">
+      <% if user_signed_in? && current_user.executive? %>
+        <%= link_to '投稿', new_event_calender_path, class: "mx-auto btn btn-sm btn-outline-dark mb-2" %>
+      <% end %>
+    </div>
+
+
+    <%= month_calendar events: @event_calenders do |date, event_calenders| %>
+      <%= date.day %>
+
+      <% event_calenders.each do |event_calender| %>
+        <div>
+          <%= link_to(event_calender_path(event_calender)) do %>
+            <%= image_tag 'big.jpg' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="calender-description d-flex align-items-center px-4 mb-4">
+      <%= image_tag 'big.jpg', class: "calender-img"%>
+      <span>：マークをタップすると活動の詳細が確認できます</span>
+    </div>
+
+  </div>
+
+
+
+
   <div class=" text-center w-100">
     <p>
       何か聞きたいことや相談がある方は<br>
@@ -49,17 +80,14 @@
     </li>
     <li>
       <a href="#" class="flowbtn12 fl_li2">
-        <i class="fab fa-line"></i><span>LINE＠</span>
+        <i class="fab fa-line"></i><span>LINE＠🙋‍♂️</span>
       </a>
     </li>  
     <li>
       <a href="#" class="flowbtn12 fl_li2">
-        <i class="fab fa-line"></i><span>LINE＠</span>
+        <i class="fab fa-line"></i><span>LINE＠🙋‍♀️</span>
       </a>
     </li>
   </ul>
 
 </div>
-
-
-

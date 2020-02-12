@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -345,10 +346,105 @@ li {
   }
 }
 
+// Calender 
+
+.simple-calendar {
+
+  width: 100%;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+
+  .calendar-title {
+    font-size: 30px;
+  }
+
+  .day {
+    font-size: 10px;
+    height: 50px;
+  }
+
+  th {
+    font-size: 10px;
+    padding: 0;
+    text-align: center;
+    background: #a1a1a1;
+  }
+
+  th:nth-last-child(2) {
+    color: blue;
+  }
+
+  th:last-child {
+    color: red;
+  }
+
+
+  td {
+    padding: 0;
+    background: #fff;
+  }
+
+  .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    vertical-align: top;
+}
+
+  .wday-0 {
+    color: red;
+  }
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {
+    color: blue;
+  }
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
+// calender-index
+
+.calender-index {
+  .calender-img {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+  }
+  span {
+    font-size: 12px;
+  }
+  
+}
 
 
 
 
+
+// calendar-show
+
+.calender-show {
+  background-color: #fff;
+  border-width: 0 3px 3px;
+  border: solid rgba(173,170,170,0.5);
+  border-radius: 0.3rem;
+  padding: 10px;
+
+}
 
 
 

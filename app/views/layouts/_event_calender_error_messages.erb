@@ -1,0 +1,10 @@
+<% if @event_calender.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger w-100 mb-0" role="alert">
+    <h4><%= pluralize(@event_calender.errors.count, "") %>つのエラーがあります。</h4>
+    <ul class="pl-4">
+    <% @event_calender.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
