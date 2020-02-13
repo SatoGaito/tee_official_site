@@ -2,7 +2,16 @@ class UsersController < ApplicationController
 
   before_action :non_active_user, only: :index
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :about
+
+  def about
+    @users = User.all
+    @male = @users.select{|i| i[:gender] == "男" }
+    @female = @users.select{|i| i[:gender] == "女" }
+    @male_ratio = @male.count.to_f / @users.count.to_f * 100
+    @female_ratio = @female.count.to_f / @users.count.to_f * 100
+    @executive = @users.select{|i| i[:executive] == true }
+  end
 
   def index
     @q = User.ransack(params[:q])

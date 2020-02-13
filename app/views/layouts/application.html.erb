@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item d-flex justify-content-between align-items-center">
-            <%= link_to 'Teeについて', homes_about_path, class: "nav-link" %>
+            <%= link_to 'Teeについて', about_path, class: "nav-link" %>
             <% if user_signed_in? %>
               <%= link_to(user_path(current_user)) do %>
                 <% if current_user.p_image.attached? %>

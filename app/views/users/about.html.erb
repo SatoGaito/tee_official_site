@@ -22,8 +22,41 @@
       </div>
     </div>
 
+    <div class="mb-4">
+      <h4>Teeの由来</h4>
+      <hr>
+      <p>ああああああああああああああああああああああああああああああああああああああああああああ</p>
+    </div>
+
+    <div class="mb-4">
+      <h4>活動内容</h4>
+      <hr>
+      <ul>
+        <li>内容</li>
+        <li>主な活動場所</li>
+        <li>日時</li>
+        <li>参加費</li>
+        <li>年会費</li>
+      </ul>
+    </div>
+
     <div class="info">
-      <p>閲覧いただきありがとうございます</p>
+      <h4>メンバー構成</h4>
+      <hr>
+      <ul>
+        <li>全体数：<%= @users.count %>人</li>
+        <li>幹部数：<%= @executive.count %>人</li>
+        <li>男：<%= @male.count %>人　女：<%= @female.count %>人</li>
+        <li>男女比率：　<%= @male_ratio %>％：<%= @female_ratio %>％</li>
+        <li>大学：</li>
+        <li>住んでる地域：</li>
+      </ul>
+      
+      
+      
+      
+      
+
     </div>
   </div>
 </div>
