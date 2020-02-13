@@ -47,7 +47,7 @@
         <li>全体数：<%= @users.count %>人</li>
         <li>幹部数：<%= @executive.count %>人</li>
         <li>男：<%= @male.count %>人　女：<%= @female.count %>人</li>
-        <li>男女比率：　<%= @male_ratio %>％：<%= @female_ratio %>％</li>
+        <li>男女比率：　<%= @male_ratio.round(1) %>％：<%= @female_ratio.round(1) %>％</li>
         <li>大学：</li>
         <li>住んでる地域：</li>
       </ul>
