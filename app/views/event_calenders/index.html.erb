@@ -1,15 +1,14 @@
 <div class="row">
 
-  <div class="main w-100 mb-4">
-    <div class="home-inner">
-      <div class="caption">
+  <div class="main mb-4">
+    <%= image_tag 'slider1.jpg' %>
+    <div class="caption text-center">
       <h1>関西インカレサークルTee</h1>
       <p>毎月6日と18日と第4金曜に活動中！<br>
       当サークルは学生のみで構成しており、<br>
       近畿圏のいろんな大学の学生がいます！！<br>
       新入生に限らずまだサークルに入れてないっていう2,3回生も募集してますよ～！</p>
       <%= link_to "詳細はこちら", homes_about_path, class: "btn btn-light " %>
-      </div>
     </div>
   </div>
 
@@ -64,7 +63,7 @@
       <% end %>
     <% end %>
 
-    <div class="calender-description d-flex align-items-center px-4 mb-4">
+    <div class="calender-description d-flex align-items-center px-4 mb-4 justify-content-center">
       <%= image_tag 'big.jpg', class: "calender-img"%>
       <span>：マークをタップすると活動の詳細が確認できます</span>
     </div>

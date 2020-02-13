@@ -1,6 +1,6 @@
 <div class="row">
 
-    <% if user_signed_in? && current_user.admin? %>
+    <% if user_signed_in? && current_user.executive? %>
       <%= link_to '投稿', new_event_path, class: "btn btn-sm btn-outline-warning mr-auto ml-auto" %>
     <% end %>
 

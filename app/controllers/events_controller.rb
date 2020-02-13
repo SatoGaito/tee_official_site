@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   end
 
   def ensure_correct_user
-    unless user_signed_in? && current_user.admin?
+    unless user_signed_in? && current_user.executive?
       flash[:notice] = "権限がありません"
       redirect_to events_path
     end
