@@ -1,5 +1,5 @@
 <div class="row">
-  <div>
+  <div class="about">
     <div id="example-2" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -25,38 +25,104 @@
     <div class="mb-4">
       <h4>Teeの由来</h4>
       <hr>
-      <p>ああああああああああああああああああああああああああああああああああああああああああああ</p>
+      <div>
+        <p class="mb-0">Teeでは<em>「一期一会」</em>という言葉を</p>
+        <p>モットーにしていて、一期一会を英語で</p>
+        <em class="motto">
+          <p class="mb-0">「<span>T</span>reasure <span>e</span>very <span>e</span>ncounter,</p>
+          <p class="text-right">for it will never recure.」</p>
+        </em>
+        <p class="mb-0">その最初の３つの単語の頭文字をとって、</p>
+        <p><em><span>Tee</span></em>となりました！</p>
+      </div>
+    </div>
+
+    <div class="event-content mb-4">
+      <h4>主な活動内容について</h4>
+      <hr>
+      <ul class="pl-0 ml-4">
+        <li>
+          活動場所：
+          <p>基本的には梅田、難波などが多く、
+          たまに三ノ宮や京都などもあります。</p>
+        </li>
+        <li>
+          活動内容：
+          <p>
+            毎月３回、幹部が考えたオリジナルの企画をして遊んでいます。
+          </p>
+        </li>
+        <li>
+          代表的な活動：
+          <p>
+            逃走中、運動会、ハロウィンパーティー、神戸や京都散策、旅行など。
+          </p>
+        </li>
+        <li>
+          日時：
+          <p>
+            毎月６日、１８日、第４金曜日に活動しています。
+          </p>
+        </li>
+        <li>
+          参加費：
+          <p>
+            活動内容によって変わりますが、500~3000円です。
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="event-content mb-4">
+      <h4>メンバー構成</h4>
+      <hr>
+      <ul class="pl-0 ml-4">
+        <li>
+          全体数：<%= @users.count %>名
+          <p>
+            １回生：<%= @grade_one.count %>名 ２回生：<%= @grade_two.count %>名<br> 
+            ３回生：<%= @grade_three.count %>名 ４回生：<%= @grade_four.count %>名
+          </p>
+        </li>
+        <li>
+          幹部数：<%= @executive.count %>名
+          <p></p>
+        </li>
+        <li>男女比率：
+          <p>
+            男子：<%= @male.count %>名　<%= @male_ratio.round(1) %>％<br>
+            女子：<%= @female.count %>名　<%= @female_ratio.round(1) %>％
+          </p>
+        </li>
+        <li>
+          大学：
+          <p>
+            関関同立、産近甲龍だけでなく、武庫女、南女、親和女子などの女子大や、大経、大産などの大学も多いです。
+          </p>
+        </li>
+        <li>
+          住んでる地域：
+          <p>
+            主に大阪、兵庫が多いですが、奈良や京都からきてる人や遠いところで言えば姫路から来ている人もいます。
+          </p>
+        </li>
+      </ul>
     </div>
 
     <div class="mb-4">
-      <h4>活動内容</h4>
+      <h4>年会費の詳細についいて</h4>
       <hr>
-      <ul>
-        <li>内容</li>
-        <li>主な活動場所</li>
-        <li>日時</li>
-        <li>参加費</li>
-        <li>年会費</li>
-      </ul>
-    </div>
-
-    <div class="info">
-      <h4>メンバー構成</h4>
-      <hr>
-      <ul>
-        <li>全体数：<%= @users.count %>人</li>
-        <li>幹部数：<%= @executive.count %>人</li>
-        <li>男：<%= @male.count %>人　女：<%= @female.count %>人</li>
-        <li>男女比率：　<%= @male_ratio.round(1) %>％：<%= @female_ratio.round(1) %>％</li>
-        <li>大学：</li>
-        <li>住んでる地域：</li>
-      </ul>
-      
-      
-      
-      
-      
-
+      <div>
+        <p>
+          Teeでは年会費として、全員から2000円を頂いております。<br>
+          その年会費の使い道としては、<br>
+          <ul>
+            <li>11月に行う学園祭での出品費用</li>
+            <li>次の年に行う新歓の準備費用</li>
+          </ul>
+          に当てさせて頂いております。
+        </p>
+      </div>
     </div>
   </div>
 </div>

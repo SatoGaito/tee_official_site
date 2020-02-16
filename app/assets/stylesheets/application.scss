@@ -96,19 +96,41 @@ li {
 
 // AboutPage
 
-.carousel {
-  width: 100%;
-  padding: 50px 0;
-}
+.about {
 
-.carousel-item {
-  img {
-    width:100%;
-    max-width: 100%;
-    height: auto;
-    padding: .25rem;
-    border: 1px solid #dee2e6;
-    border-radius: .25rem;
+  .carousel {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .carousel-item {
+    img {
+      width:100%;
+      max-width: 100%;
+      height: auto;
+      padding: .25rem;
+      border: 1px solid #dee2e6;
+      border-radius: .25rem;
+    }
+  }
+
+  em.motto {
+    font-size: 20px;
+  }
+
+  span {
+    color: red;
+  }
+
+  .event-content {
+    li {
+      list-style: circle;
+    }
+    p {
+      font-size: 13px;
+      padding-left: 20px;
+      margin-top: 5px;
+    }
   }
 }
 
@@ -475,7 +497,6 @@ li {
     font-size: 12px;
   }
 }
-
 
 // calendar-show
 
