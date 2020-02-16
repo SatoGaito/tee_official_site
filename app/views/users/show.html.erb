@@ -25,7 +25,9 @@
   <div class="introduction">
     <p>【自己紹介】</p>
     <p class="text-left">
-      <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
+      <% if @user.introduction.present? %>
+        <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
+      <% end %>
     </p>
   </div>
   <hr>
