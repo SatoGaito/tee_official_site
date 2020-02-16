@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users(:users,
+    controllers: {
+      registrations: 'users/registrations',
+      passwords: 'users/passwords'
+    })
   root to: 'event_calenders#index'
   get 'about', to: 'users#about'
   resources  :users, only: [:index, :show, :edit, :update]
