@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      redirect_to tweets_path, notice: "つぶやきました。"
+      redirect_to tweets_path, notice: "ツイートの投稿が完了しました。"
     else
       render :new
     end
@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
   def update
     @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
-      redirect_to tweet_path(@tweet), notice: "つぶやきの更新を完了しました。"
+      redirect_to tweet_path(@tweet), notice: "ツイートの更新を完了しました。"
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.delete
-    redirect_to tweets_path, notice: "つぶやきを削除しました。"
+    redirect_to tweets_path, notice: "ツイートの投稿を削除しました。"
   end
 
   private
