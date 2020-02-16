@@ -21,10 +21,6 @@ class Users::PasswordsController < Devise::PasswordsController
   #   super
   # end
 
-  def update
-    super { |resource| resource.remember_me = true }
-  end
-
   # protected
 
   # def after_resetting_password_path_for(resource)

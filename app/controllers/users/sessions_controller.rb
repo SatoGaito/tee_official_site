@@ -13,14 +13,6 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  def create
-    if user = User.authenticate(params[:email], params[:password])
-      session[:user_id] = user.id
-   else
-      render ‘create’
-    end
-  end
-
   # DELETE /resource/sign_out
   # def destroy
   #   super
