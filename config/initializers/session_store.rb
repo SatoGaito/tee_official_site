@@ -1,1 +1,0 @@
-Rails.application.config.session_store :cookie_store, key: '_tee_official_site_session', expire_after: 1.month
