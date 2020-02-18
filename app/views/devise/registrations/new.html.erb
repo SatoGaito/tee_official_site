@@ -12,7 +12,7 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+          <%= f.text_field :name, autofocus: true, placeholder: "フルネーム", class: "form-control" %>
         </div>
 
         <div class="field">
@@ -24,7 +24,7 @@
         </div>
 
         <div class="field">
-          <%= f.submit "サインアップ", class: "btn btn-lg btn-block btn-primary" %>
+          <%= f.submit "サインアップ", class: "btn btn-lg btn-block sign-up-btn" %>
         </div>
       <% end %>
 
