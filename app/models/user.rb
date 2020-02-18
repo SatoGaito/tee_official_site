@@ -16,6 +16,10 @@ class User < ApplicationRecord
   validates :grade, :gender, presence: true, on: :update
   validates :introduction, presence: true, length: { minimum: 50, maximum: 1000 }, on: :update
 
+  def remember_me
+    true
+  end
+
   def email_required?
     false
   end
