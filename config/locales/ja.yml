@@ -7,6 +7,7 @@ ja:
       tweet: ツイート
       tweet_comment: ツイートコメント
       favorite: いいね
+      event_calender: 活動カレンダー
     attributes:
       user:
         name: 名前
@@ -33,7 +34,6 @@ ja:
         date: 日付
         content: 内容
         e_image: 活動写真
-        user: ユーザー
         event_comments: 活動コメント
         created_at: 作成日
         updated_at: 更新日
@@ -61,6 +61,13 @@ ja:
         user: ユーザー
         created_at: 作成日
         updated_at: 更新日
+      event_calender:
+        title: 活動名
+        content: 内容
+        start_time: 日付
+        created_at: 作成日
+        updated_at: 更新日
+
 
 
 
