@@ -51,6 +51,7 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
+        <% if user.active? && user.nickname.present? %>
         <tr>
           <td>      
             <% if user.p_image.attached? %>
@@ -62,6 +63,7 @@
           <td><%=link_to user.nickname, user_path(user) %></td>
           <td><%= user.grade %></td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
