@@ -1,0 +1,64 @@
+<div class="header">
+    <nav class="bg-light navbar navbar-expand-lg fixed-top pt-2 pb-2 border-top border-bottom">
+      <a class="navbar-brand logo" href="/">
+        <%= image_tag 'big.jpg', class: "header-logo" %>
+      </a>
+      <div class="heade-title">
+        <h3 class="mb-0">Tee Official Site</h3>
+      </div>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <i class="fas fa-bars"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item d-flex justify-content-between align-items-center">
+            <%= link_to 'Teeについて', about_path, class: "nav-link" %>
+            <% if user_signed_in? %>
+              <%= link_to(user_path(current_user)) do %>
+                <% if current_user.p_image.attached? %>
+                  <%= image_tag current_user.p_image, class: "nav-link navbar-toggler" %>
+                <% else %>
+                  <%= image_tag 'big.jpg', class: "nav-link navbar-toggler" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </li>
+          <li class="nav-item d-flex justify-content-between align-items-center">
+            <%= link_to '活動紹介', events_path, class: "nav-link" %>
+            <% if user_signed_in? %>
+              <%= link_to current_user.name, user_path(current_user), class: "nav-link navbar-toggler" %>
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+            <% if current_user.active? %>
+              <li class="nav-item d-flex justify-content-between align-items-center">
+                <%= link_to 'メンバー', users_path, class: "nav-link" %>
+                <%= link_to current_user.email, user_path(current_user), class: "nav-link navbar-toggler" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ツイート', tweets_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to '管理者ページ', '/admin', class: "nav-link" %>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+
+          <% else %>
+            <li class="nav-item">
+              <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+            <li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>

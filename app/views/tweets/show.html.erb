@@ -1,4 +1,5 @@
 <div class="row">
+  <%= render 'shared/tweet_error_messages' %>
 
   <div class="w-100 text-center mb-4">
     <% if user_signed_in? && current_user.id == @tweet.user_id %>
