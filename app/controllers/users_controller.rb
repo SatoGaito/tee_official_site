@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @q = User.ransack(params[:q])
+    @q = User.with_attached_p_image.ransack(params[:q])
     @users = @q.result(distinct: true)
   end
 
