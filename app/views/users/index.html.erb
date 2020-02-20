@@ -1,70 +1,72 @@
-<div class="row">
-  <div class="search-info mb-2 text-center w-100">
-    <a class="btn btn-sm btn-outline-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      検索
-    </a>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="search-info mb-2 text-center w-100">
+      <a class="btn btn-sm btn-outline-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        検索
+      </a>
+    </div>
 
-  <div class="search text-left bg-light collapse has-shadow-1 mt-4 w-100 p-4 border rounded" id="collapseExample">
+    <div class="search text-left bg-light collapse has-shadow-1 mt-4 w-100 p-4 border rounded" id="collapseExample">
 
-    <%= search_form_for @q do |f| %>
+      <%= search_form_for @q do |f| %>
 
-      <div class="field">
-        <%= f.search_field :nickname_cont, placeholder: "ニックネーム", class: "form-control" %>
-      </div>
+        <div class="field">
+          <%= f.search_field :nickname_cont, placeholder: "ニックネーム", class: "form-control" %>
+        </div>
 
-      <div class="field ml-1">
-        <%= f.radio_button :gender_eq, '', {:checked => true} %> 指定なし
-        <%= f.radio_button :gender_eq, '男', class: "ml-1" %> 男性
-        <%= f.radio_button :gender_eq, '女', class: "ml-1" %> 女性
-      </div>
+        <div class="field ml-1">
+          <%= f.radio_button :gender_eq, '', {:checked => true} %> 指定なし
+          <%= f.radio_button :gender_eq, '男', class: "ml-1" %> 男性
+          <%= f.radio_button :gender_eq, '女', class: "ml-1" %> 女性
+        </div>
 
-      <div class="field">
-        <%= f.search_field :college_cont, placeholder: "大学名", class: "form-control" %>
-      </div>
+        <div class="field">
+          <%= f.search_field :college_cont, placeholder: "大学名", class: "form-control" %>
+        </div>
 
-      <div class="field">
-        <%= f.number_field :grade_gteq, min: 1, max: 4, class: "number px-2 ml-1" %> 回生以上〜
-        <%= f.number_field :grade_lteq, min: 1, max: 4, class: "number px-2 ml-1" %> 回生以下
-      </div>
+        <div class="field">
+          <%= f.number_field :grade_gteq, min: 1, max: 4, class: "number px-2 ml-1" %> 回生以上〜
+          <%= f.number_field :grade_lteq, min: 1, max: 4, class: "number px-2 ml-1" %> 回生以下
+        </div>
 
-      <div class="field">
-        <%= f.label :executive, "幹部：", class: "ml-1" %>
-        <%= f.check_box :executive_eq, {},checked_value = "true", unchecked_value = "" %>
-      </div>
+        <div class="field">
+          <%= f.label :executive, "幹部：", class: "ml-1" %>
+          <%= f.check_box :executive_eq, {},checked_value = "true", unchecked_value = "" %>
+        </div>
 
-      <div class="field mb-0 text-center">
-        <%= f.submit "検索" , class: "btn btn-sm btn-block btn-primary"%>
-      </div>
-    <% end %>
-
-  </div>
-
-
-  <table class="table table-hover mt-4 mb-4">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= sort_link(@q, :nickname, "ニックネーム") %></th>
-        <th><%= sort_link(@q, :grade, "回生") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <% if user.active? && user.nickname.present? %>
-        <tr>
-          <td>      
-            <% if user.p_image.attached? %>
-              <%= image_tag user.p_image %>
-            <% else %>
-              <%= image_tag 'big.jpg' %>
-            <% end %>
-          </td>
-          <td><%=link_to user.nickname, user_path(user) %></td>
-          <td><%= user.grade %></td>
-        </tr>
-        <% end %>
+        <div class="field mb-0 text-center">
+          <%= f.submit "検索" , class: "btn btn-sm btn-block btn-primary"%>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+
+    </div>
+
+
+    <table class="table table-hover mt-4 mb-4">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= sort_link(@q, :nickname, "ニックネーム") %></th>
+          <th><%= sort_link(@q, :grade, "回生") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <% if user.active? && user.nickname.present? %>
+          <tr>
+            <td>      
+              <% if user.p_image.attached? %>
+                <%= image_tag user.p_image %>
+              <% else %>
+                <%= image_tag 'big.jpg' %>
+              <% end %>
+            </td>
+            <td><%=link_to user.nickname, user_path(user) %></td>
+            <td><%= user.grade %></td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

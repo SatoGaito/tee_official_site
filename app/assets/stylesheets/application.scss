@@ -100,7 +100,7 @@ li {
 
   .carousel {
     width: 100%;
-    padding: 50px 0;
+    padding: 50px 0 20px;
   }
 
   .carousel-item {
@@ -118,20 +118,27 @@ li {
     font-size: 20px;
   }
 
-  span {
-    color: red;
+  .motto {
+    span {
+      color: #dc3545;
+    }
   }
 
   .event-content {
     li {
       list-style: circle;
     }
+
+    h6 {
+      font-weight: bold;
+    }
     p {
-      font-size: 13px;
+      // font-size: 13px;
       padding-left: 20px;
       margin-top: 5px;
     }
   }
+
 }
 
 // event-index

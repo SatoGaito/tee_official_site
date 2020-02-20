@@ -1,109 +1,111 @@
-<div class="row">
-  <%= render 'shared/tweet_error_messages' %>
+<div class="container">  
+  <div class="row">
+    <%= render 'shared/tweet_error_messages' %>
 
-  <div class="w-100 text-center mb-4">
-    <% if user_signed_in? && current_user.id == @tweet.user_id %>
-      <%= link_to '編集', edit_tweet_path, class: "btn btn-sm btn-outline-success mr-2" %>
-      <%= link_to '削除', tweet_path, class: "btn btn-sm btn-outline-success", method: :delete,"data-confirm" => "本当に消しますか？" %>
-    <% end %>
-  </div>
+    <div class="w-100 text-center mb-4">
+      <% if user_signed_in? && current_user.id == @tweet.user_id %>
+        <%= link_to '編集', edit_tweet_path, class: "btn btn-sm btn-outline-success mr-2" %>
+        <%= link_to '削除', tweet_path, class: "btn btn-sm btn-outline-success", method: :delete,"data-confirm" => "本当に消しますか？" %>
+      <% end %>
+    </div>
 
-  <div class="tweet-index mb-4 w-100 has-shadow-1 bg-white p-4">
-    <div class="tweet-content mb-4">
-      <%= safe_join(@tweet.tweet.split("\n"), tag(:br)) %>
-      <div class="text-right">
-        <i class="far fa-clock mr-1 ml-1"></i><%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
+    <div class="tweet-index mb-4 w-100 has-shadow-1 bg-white p-4">
+      <div class="tweet-content mb-4">
+        <%= safe_join(@tweet.tweet.split("\n"), tag(:br)) %>
+        <div class="text-right">
+          <i class="far fa-clock mr-1 ml-1"></i><%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
+        </div>
       </div>
-    </div>
 
-    <div class="tweet-user d-flex justify-content-between align-items-center">
+      <div class="tweet-user d-flex justify-content-between align-items-center">
 
-      <% if @tweet.favorited_by?(current_user) %>
-        <li>
-          <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
-            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-            <%= @tweet.favorites.count %> いいね
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to tweet_favorites_path(@tweet), method: :post do %>
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
-            <%= @tweet.favorites.count %> いいね
-          <% end %>
-        </li>
-      <% end %>
-
-      <%= link_to(user_path(@tweet.user)) do %>
-        <% if @tweet.user.p_image.attached? %>
-          <%= image_tag @tweet.user.p_image %>
+        <% if @tweet.favorited_by?(current_user) %>
+          <li>
+            <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
+              <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+              <%= @tweet.favorites.count %> いいね
+            <% end %>
+          </li>
         <% else %>
-          <%= image_tag 'big.jpg' %>
+          <li>
+            <%= link_to tweet_favorites_path(@tweet), method: :post do %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+              <%= @tweet.favorites.count %> いいね
+            <% end %>
+          </li>
         <% end %>
-        <%= @tweet.user.nickname %>
-      <% end %>
+
+        <%= link_to(user_path(@tweet.user)) do %>
+          <% if @tweet.user.p_image.attached? %>
+            <%= image_tag @tweet.user.p_image %>
+          <% else %>
+            <%= image_tag 'big.jpg' %>
+          <% end %>
+          <%= @tweet.user.nickname %>
+        <% end %>
+
+      </div>
 
     </div>
 
-  </div>
+    <div class="comment-section text-center w-100">
 
-  <div class="comment-section text-center w-100">
+      <div class="comment-count">
+        <%= "【コメント：#{@tweet.tweet_comments.count}件】" %>
+      </div>
 
-    <div class="comment-count">
-      <%= "【コメント：#{@tweet.tweet_comments.count}件】" %>
-    </div>
-
-    <div class="comment-content">
-      <% @tweet.tweet_comments.each do |tweet_comment| %>
-        <div class="comment">
-        <hr>
-          <div class="comment-body">
-            <div class="comment-top d-flex flex-row align-items-center mb-2">
-              <div class="comment-avatar mr-3">
-                <div class="avatar">
-                  <% if tweet_comment.user.p_image.attached? %>
-                    <%= image_tag tweet_comment.user.p_image %>
-                  <% else %>
-                    <%= image_tag 'big.jpg' %>
-                  <% end %>
+      <div class="comment-content">
+        <% @tweet.tweet_comments.each do |tweet_comment| %>
+          <div class="comment">
+          <hr>
+            <div class="comment-body">
+              <div class="comment-top d-flex flex-row align-items-center mb-2">
+                <div class="comment-avatar mr-3">
+                  <div class="avatar">
+                    <% if tweet_comment.user.p_image.attached? %>
+                      <%= image_tag tweet_comment.user.p_image %>
+                    <% else %>
+                      <%= image_tag 'big.jpg' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="comment-nickname">
+                  <%= link_to tweet_comment.user.nickname, user_path(tweet_comment.user) %>
                 </div>
               </div>
-              <div class="comment-nickname">
-                <%= link_to tweet_comment.user.nickname, user_path(tweet_comment.user) %>
+              <div class="commnt-bottom">
+                <div class="comment-text d-flex flex-row align-items-center mb-2">
+                  <i class="far fa-comment-dots mr-3 ml-3"></i>
+                  <span class="mr-auto text-left"><%= safe_join(tweet_comment.comment.split("\n"), tag(:br)) %></span>
+                  <% if user_signed_in? && current_user.id == tweet_comment.user_id %>
+                    <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn btn-sm btn-success" %> 
+                  <% end %>
+                </div>
+                <div class="comment-date d-flex flex-row align-items-center">
+                  <i class="far fa-clock mr-3 ml-3"></i>
+                  <%= tweet_comment.created_at.strftime('%Y/%m/%d/%R') %>
+                </div>
               </div>
             </div>
-            <div class="commnt-bottom">
-              <div class="comment-text d-flex flex-row align-items-center mb-2">
-                <i class="far fa-comment-dots mr-3 ml-3"></i>
-                <span class="mr-auto text-left"><%= safe_join(tweet_comment.comment.split("\n"), tag(:br)) %></span>
-                <% if user_signed_in? && current_user.id == tweet_comment.user_id %>
-                  <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn btn-sm btn-success" %> 
-                <% end %>
-              </div>
-              <div class="comment-date d-flex flex-row align-items-center">
-                <i class="far fa-clock mr-3 ml-3"></i>
-                <%= tweet_comment.created_at.strftime('%Y/%m/%d/%R') %>
-              </div>
-            </div>
+            
           </div>
           
-        </div>
-        
-      <% end %>
-      <hr>
-    </div>
-  </div>
-
-  <% if user_signed_in? && current_user.active? %>
-    <div class="comment-form text-center w-100">
-      <div class="mb-2">【コメントフォーム】</div>
-        <%= form_for [@tweet, @tweet_comment] do |f| %>
-          <div class="d-flex">
-            <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
-            <%= f.submit "送信する", class: "btn btn-success mb-2" %>
-          </div>
         <% end %>
+        <hr>
       </div>
     </div>
-  <% end %>
+
+    <% if user_signed_in? && current_user.active? %>
+      <div class="comment-form text-center w-100">
+        <div class="mb-2">【コメントフォーム】</div>
+          <%= form_for [@tweet, @tweet_comment] do |f| %>
+            <div class="d-flex">
+              <%= f.text_area :comment, placeholder: "コメントをここに", class: "text-area flex-grow-1 mr-2" %>
+              <%= f.submit "送信する", class: "btn btn-success mb-2" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

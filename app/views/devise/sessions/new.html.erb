@@ -1,31 +1,33 @@
-<div class="row">
-  <div class="has-shadow-1 w-100 mt-4">
-    <div class="form-header text-center pt-4 pb-4">
-      <h2 class="mb-0">ユーザーログイン</h2>
-    </div>
-    
-
-    <div class="form-body">
-      <div class="text-center">
-        <p>名前（フルネーム）と<br>パスワードを入力してください。</p>
+<div class="container">  
+  <div class="row">
+    <div class="has-shadow-1 w-100 mt-4">
+      <div class="form-header text-center pt-4 pb-4">
+        <h2 class="mb-0">ユーザーログイン</h2>
       </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
 
-        <div class="field">
-          <%= f.text_field :name, autofocus: true, placeholder: "フルネーム（左詰）", class: "form-control" %>
+      <div class="form-body">
+        <div class="text-center">
+          <p>名前（フルネーム）と<br>パスワードを入力してください。</p>
         </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.text_field :name, autofocus: true, placeholder: "フルネーム（左詰）", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.submit "ログイン", class: "btn btn-lg btn-block login-btn" %>
-        </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
+          </div>
 
-      <% end %>
+          <div class="field">
+            <%= f.submit "ログイン", class: "btn btn-lg btn-block login-btn" %>
+          </div>
 
-      <%= link_to 'ユーザー登録', new_user_registration_path %>
+        <% end %>
+
+        <%= link_to 'ユーザー登録', new_user_registration_path %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,34 +1,36 @@
-<div class="row">
-  <%= render 'shared/event_error_messages' %>
+<div class="container">  
+  <div class="row">
+    <%= render 'shared/event_error_messages' %>
 
-  <div class="event-new has-shadow-1 w-100 mt-4">
-    <div class="form-header text-center pt-4 pb-4">
-      <h2 class="mb-0">活動編集</h2>
-    </div>
-    <div class="form-body">
-      <%= form_for @event do |f| %>
+    <div class="event-new has-shadow-1 w-100 mt-4">
+      <div class="form-header text-center pt-4 pb-4">
+        <h2 class="mb-0">活動編集</h2>
+      </div>
+      <div class="form-body">
+        <%= form_for @event do |f| %>
 
-        <div class="field">
-          <%= f.text_field :title, autofocus: true, placeholder: "タイトル", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.text_field :title, autofocus: true, placeholder: "タイトル", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.date_field :date, autofocus: true, placeholder: "日時", class: "form-control"%>
-        </div>
+          <div class="field">
+            <%= f.date_field :date, autofocus: true, placeholder: "日時", class: "form-control"%>
+          </div>
 
-        <div class="field">
-          <%= f.text_area :content, autofocus: true, placeholder: "内容", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.text_area :content, autofocus: true, placeholder: "内容", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :e_image, "集合写真：" %>
-          <%= f.file_field :e_image %>
-        </div>
+          <div class="field">
+            <%= f.label :e_image, "集合写真：" %>
+            <%= f.file_field :e_image %>
+          </div>
 
-        <div class="field">
-        <%= f.submit "更新", class: "btn btn-lg btn-block btn-warning" %>
-        </div>
-      <% end %>
+          <div class="field">
+          <%= f.submit "更新", class: "btn btn-lg btn-block btn-warning" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

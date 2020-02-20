@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     @male_ratio = @male.count.to_f / @users.count.to_f * 100
     @female_ratio = @female.count.to_f / @users.count.to_f * 100
     @executive = @users.select{|i| i[:executive] == true }
-    @grade_one = @users.select{|i| i[:grade] == 1 }
-    @grade_two = @users.select{|i| i[:grade] == 2 }
-    @grade_three = @users.select{|i| i[:grade] == 3 }
-    @grade_four = @users.select{|i| i[:grade] == 4 }
   end
 
   def index

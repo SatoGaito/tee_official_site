@@ -1,48 +1,49 @@
+<div class="container">
+  <div class="row">
+    <%= render 'shared/user_error_messages' %>
+    
+    <div class="profile-edit has-shadow-1 w-100 mt-4">
+      <div class="form-header text-center pt-4 pb-4">
+        <h2 class="mb-0">プロフィール編集</h2>
+      </div>
+      <div class="form-body">
+        <%= form_for @user do |f| %>
 
-<div class="row">
-  <%= render 'shared/user_error_messages' %>
-  
-  <div class="profile-edit has-shadow-1 w-100 mt-4">
-    <div class="form-header text-center pt-4 pb-4">
-      <h2 class="mb-0">プロフィール編集</h2>
-    </div>
-    <div class="form-body">
-      <%= form_for @user do |f| %>
+          <div class="field">
+            <%= f.text_field :name, autofocus: true, placeholder: "フルネーム（左詰）", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.text_field :name, autofocus: true, placeholder: "フルネーム（左詰）", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.radio_button :gender, "男", class: "ml-2" %> 男
+            <%= f.radio_button :gender, "女", class: "ml-3" %> 女
+          </div>
 
-        <div class="field">
-          <%= f.radio_button :gender, "男", class: "ml-2" %> 男
-          <%= f.radio_button :gender, "女", class: "ml-3" %> 女
-        </div>
+          <div class="field">
+            <%= f.text_field :college, autofocus: true, placeholder: "大学", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.text_field :college, autofocus: true, placeholder: "大学", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.number_field :grade, min: 1, max: 4, autofocus: true, class: "ml-1 px-2 number" %> 回生
+          </div>
 
-        <div class="field">
-          <%= f.number_field :grade, min: 1, max: 4, autofocus: true, class: "ml-1 px-2 number" %> 回生
-        </div>
+          <div class="field">
+            <%= f.label :p_image, "プロフィール画像：" %>
+            <%= f.file_field :p_image %>
+          </div>
 
-        <div class="field">
-          <%= f.label :p_image, "プロフィール画像：" %>
-          <%= f.file_field :p_image %>
-        </div>
+          <div class="field">
+            <%= f.text_area :introduction, autofocus: true, placeholder: "自己紹介", class: "form-control introduction" %>
+          </div>
 
-        <div class="field">
-          <%= f.text_area :introduction, autofocus: true, placeholder: "自己紹介", class: "form-control introduction" %>
-        </div>
-
-        <div class="field">
-          <%= f.submit "保存", class: "btn btn-lg btn-block btn-info" %>
-        </div>
-      <% end %>
+          <div class="field">
+            <%= f.submit "保存", class: "btn btn-lg btn-block btn-info" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

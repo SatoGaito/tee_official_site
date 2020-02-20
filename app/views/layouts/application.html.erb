@@ -9,21 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/5e26fc7eea.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
 
   <body>
     <%= render 'shared/header' %>
-
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
-      <% end %>
-      <%= yield %>
-    </div>
-
-  <div class="footer text-center bg-light p-4 border-top border-bottom w-100">
-    © 2020 created by Gaito
-  </div>
-
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
+    <% end %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

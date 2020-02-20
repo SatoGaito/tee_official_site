@@ -1,32 +1,34 @@
-<div class="row">
-  <%= render 'shared/event_calender_error_messages' %>
+<div class="container">
+  <div class="row">
+    <%= render 'shared/event_calender_error_messages' %>
 
-  <div class="event_calender-new has-shadow-1 w-100 mt-4">
-    <div class="form-header text-center pt-4 pb-4">
-      <h2 class="mb-0">活動編集</h2>
-    </div>
+    <div class="event_calender-new has-shadow-1 w-100 mt-4">
+      <div class="form-header text-center pt-4 pb-4">
+        <h2 class="mb-0">活動編集</h2>
+      </div>
 
-    <div class="form-body">
-      <%= form_with(model: @event_calender, local: true) do |form| %>
-
-        <div class="field">
-          <%= form.text_field :title, placeholder: "タイトル", class: "form-control" %>
-        </div>
+      <div class="form-body">
+        <%= form_with(model: @event_calender, local: true) do |form| %>
 
           <div class="field">
-          <%= form.date_field :start_time, placeholder: "日時", class: "form-control" %>
-        </div>
+            <%= form.text_field :title, placeholder: "タイトル", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= form.text_area :content, placeholder: "内容", class: "form-control" %>
-        </div>
+            <div class="field">
+            <%= form.date_field :start_time, placeholder: "日時", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :content, placeholder: "内容", class: "form-control" %>
+          </div>
 
 
-        <div class="field">
-          <%= form.submit "更新", class: "btn btn-lg btn-block btn-dark" %>
-        </div>
+          <div class="field">
+            <%= form.submit "更新", class: "btn btn-lg btn-block btn-dark" %>
+          </div>
 
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
