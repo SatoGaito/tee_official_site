@@ -1,6 +1,6 @@
 <div class="container">
+  <%= render 'shared/flash_notice' %>
   <div class="row">
-
     <div class="w-100 text-center mb-4">
       <% if user_signed_in? && current_user.executive? %>
         <%= link_to '編集', edit_event_calender_path, class: "btn btn-sm btn-outline-dark mr-2" %>

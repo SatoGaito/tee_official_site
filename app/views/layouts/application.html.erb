@@ -14,9 +14,6 @@
 
   <body>
     <%= render 'shared/header' %>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key} alert alert-success") %>
-    <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>

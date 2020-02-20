@@ -1,4 +1,5 @@
 <div class="container">  
+  <%= render 'shared/flash_notice' %>
   <div class="row">
 
       <% if user_signed_in? && current_user.executive? %>
