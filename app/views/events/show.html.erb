@@ -63,7 +63,7 @@
               <div class="commnt-bottom">
                 <div class="comment-text d-flex flex-row align-items-center mb-2">
                   <i class="far fa-comment-dots mr-3 ml-3"></i>
-                  <span class="mr-auto"><%= safe_join(event_comment.comment.split("\n"), tag(:br)) %></span>
+                  <span class="mr-auto text-left"><%= safe_join(event_comment.comment.split("\n"), tag(:br)) %></span>
                   <% if user_signed_in? && current_user.id == event_comment.user_id %>
                     <%= link_to "削除", event_event_comment_path(event_comment.event.id, event_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn btn-sm btn-warning" %> 
                   <% end %>
