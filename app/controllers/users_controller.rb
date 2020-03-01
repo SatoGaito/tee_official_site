@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def index
     @q = User.with_attached_p_image.ransack(params[:q])
+    @q.sorts = 'id asc' if @q.sorts.empty?
     @users = @q.result(distinct: true)
   end
 

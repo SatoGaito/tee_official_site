@@ -22,17 +22,25 @@
 
         <% if @tweet.favorited_by?(current_user) %>
           <li>
-            <%= link_to tweet_favorites_path(@tweet), method: :delete do %>
+            <%= link_to tweet_favorites_path(@tweet), method: :delete, class: "btn btn-sm" do %>
               <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
               <%= @tweet.favorites.count %> いいね
             <% end %>
+
+            <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+              表示
+            </a>
           </li>
         <% else %>
           <li>
-            <%= link_to tweet_favorites_path(@tweet), method: :post do %>
+            <%= link_to tweet_favorites_path(@tweet), method: :post, class: "btn btn-sm" do %>
               <i class="fa fa-heart-o" aria-hidden="true"></i>
               <%= @tweet.favorites.count %> いいね
             <% end %>
+
+            <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+              表示
+            </a>
           </li>
         <% end %>
 
@@ -46,6 +54,27 @@
         <% end %>
 
       </div>
+
+
+
+      <table class="table table-hover mt-4 mb-0 collapse" id="collapse">
+      <tbody class="favorite">
+        <% @tweet.favorites.each do |favorite| %>
+          <% if favorite.user.active? && favorite.user.nickname.present? %>
+          <tr>
+            <td>      
+              <% if favorite.user.p_image.attached? %>
+                <%= image_tag favorite.user.p_image %>
+              <% else %>
+                <%= image_tag 'big.jpg' %>
+              <% end %>
+            </td>
+            <td><%=link_to favorite.user.nickname, user_path(favorite.user) %></td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
 
     </div>
 
@@ -94,7 +123,10 @@
         <% end %>
         <hr>
       </div>
+
     </div>
+
+
 
     <% if user_signed_in? && current_user.active? %>
       <div class="comment-form text-center w-100">
