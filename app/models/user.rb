@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 2, maximum: 10}
   validates :nickname, :college, presence: true, length: { minimum: 2, maximum: 10 }, on: :update
   validates :grade, :gender, presence: true, on: :update
-  validates :introduction, presence: true, length: { minimum: 50, maximum: 1000 }, on: :update
+  validates :introduction, presence: true, length: { minimum: 5, maximum: 1000 }, on: :update
 
   def remember_me
     true
