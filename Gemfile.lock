@@ -348,6 +348,7 @@ DEPENDENCIES
   devise-i18n-views
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.11)

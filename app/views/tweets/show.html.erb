@@ -27,9 +27,11 @@
               <%= @tweet.favorites.count %> いいね
             <% end %>
 
-            <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
-              表示
-            </a>
+            <% if @tweet.favorites.present? %>
+              <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                表示
+              </a>
+            <% end %>
           </li>
         <% else %>
           <li>
@@ -38,9 +40,11 @@
               <%= @tweet.favorites.count %> いいね
             <% end %>
 
-            <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
-              表示
-            </a>
+            <% if @tweet.favorites.present? %>
+              <a class="btn btn-sm" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                表示
+              </a>
+            <% end %>
           </li>
         <% end %>
 
@@ -70,6 +74,7 @@
               <% end %>
             </td>
             <td><%=link_to favorite.user.nickname, user_path(favorite.user) %></td>
+            <td>いいねしました。</td>
           </tr>
           <% end %>
         <% end %>
