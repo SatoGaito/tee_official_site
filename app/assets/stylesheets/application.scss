@@ -546,6 +546,7 @@ li {
 
 .tu-ti-show {
   img {
+    border-radius: 100%;
     width: 20px;
     height: 20px;
     margin-bottom: 2.5px
@@ -561,8 +562,6 @@ li {
   .fa-circle {
     position: absolute;
     top: -5px;
-    padding-left: 5px;
-    padding-top: 0rem;
     color: #efa04c;
   }
 }

@@ -16,13 +16,13 @@
   <% case notification.action %>
     <% when "like" then %>
       <strong>
-        <%= link_to 'あなたの投稿', notification.tweet, class: "strong" %>
+        <%= link_to 'あなたのツイート', notification.tweet, class: "strong" %>
       </strong>
       <span>にいいね！しました。</span>
     <% when "comment" then %>
       <% if notification.tweet.user_id == visited.id %>
         <strong>
-          <%= link_to 'あなたの投稿', notification.tweet, class: "strong" %>
+          <%= link_to 'あなたのツイート', notification.tweet, class: "strong" %>
         </strong>
       <% else %>
         <%= link_to notification.tweet do %>
@@ -32,7 +32,7 @@
             <%= image_tag 'big.jpg' %>
           <% end %>
           <strong>
-            <%= notification.tweet.user.nickname + 'の投稿' %>
+            <%= notification.tweet.user.nickname + 'のツイート' %>
           </strong>
         <% end %>
       <% end %>
