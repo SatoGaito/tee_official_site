@@ -9,6 +9,7 @@ class TweetCommentsController < ApplicationController
       comment = current_user.tweet_comments.new(tweet_comment_params)
       comment.tweet_id = tweet.id
       if comment.save
+        tweet.create_notification_tweet_comment(current_user, comment.id)
         redirect_to tweet_path(tweet), notice: "コメントの投稿が完了しました。"
       else 
         redirect_to tweet_path(tweet), notice: "コメントを入力してください。"
@@ -18,7 +19,7 @@ class TweetCommentsController < ApplicationController
 
   def destroy
     comment = TweetComment.find_by(id: params[:id], tweet_id: params[:tweet_id])
-    comment.delete
+    comment.destroy
     redirect_to tweet_path(comment.tweet_id), notice: "コメントを削除しました。"
   end
 

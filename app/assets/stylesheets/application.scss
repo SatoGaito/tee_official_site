@@ -537,7 +537,50 @@ li {
 }
 
 
+// notification
 
+.tu-ti-index {
+  margin-top: 80px;
+  padding: 10px;
+}
+
+.tu-ti-show {
+  img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2.5px
+  }
+
+  strong, .strong {
+    color: #069189;
+  }
+}
+
+.tu-ti-toggle {
+  position: relative;
+  .fa-circle {
+    position: absolute;
+    top: -5px;
+    padding-left: 5px;
+    padding-top: 0rem;
+    color: #efa04c;
+  }
+}
+
+.tu-ti {
+  position: relative;
+  .fa-circle {
+    position: absolute;
+    top: 5px;
+    padding-left: 25px;
+    padding-top: 0rem;
+    color: #efa04c;
+  }
+}
+
+.tu-ti-bg {
+  height:100vh;
+}
 
 
 

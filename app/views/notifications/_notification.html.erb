@@ -1,0 +1,48 @@
+<% visitor=notification.visitor %>
+<% visited=notification.visited %>
+
+<div class="tu-ti-show">
+  <%= link_to user_path(visitor) do %>
+    <% if visitor.p_image.attached? %>
+      <%= image_tag visitor.p_image %>
+    <% else %>
+      <%= image_tag 'big.jpg' %>
+    <% end %>
+    <strong>
+      <%= visitor.nickname %>
+    </strong>
+  <% end %>
+  <span>が</span>
+  <% case notification.action %>
+    <% when "like" then %>
+      <strong>
+        <%= link_to 'あなたの投稿', notification.tweet, class: "strong" %>
+      </strong>
+      <span>にいいね！しました。</span>
+    <% when "comment" then %>
+      <% if notification.tweet.user_id == visited.id %>
+        <strong>
+          <%= link_to 'あなたの投稿', notification.tweet, class: "strong" %>
+        </strong>
+      <% else %>
+        <%= link_to notification.tweet do %>
+          <% if notification.tweet.user.p_image.attached? %>
+            <%= image_tag notification.tweet.user.p_image %>
+          <% else %>
+            <%= image_tag 'big.jpg' %>
+          <% end %>
+          <strong>
+            <%= notification.tweet.user.nickname + 'の投稿' %>
+          </strong>
+        <% end %>
+      <% end %>
+      <span>にコメントしました。</span>
+      <p class="small text-muted mb-0">
+        <%= TweetComment.find_by(id: notification.tweet_comment_id)&.comment %>
+      </p>
+  <% end %>
+  <div class="small text-muted text-right">
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  </div>
+  <hr>
+</div>

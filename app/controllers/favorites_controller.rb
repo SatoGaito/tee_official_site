@@ -4,6 +4,9 @@ class FavoritesController < ApplicationController
     tweet = Tweet.find(params[:tweet_id])
     favorite = current_user.favorites.new(tweet_id: tweet.id)
     favorite.save
+    # ここから
+    tweet.create_notification_like(current_user)
+    # ここまで
     redirect_to tweet_path(tweet)
   end
 

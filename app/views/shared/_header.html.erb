@@ -7,8 +7,13 @@
         <h3 class="mb-0">Tee Official Site</h3>
       </div>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
+        <span class="navbar-toggler-icon tu-ti-toggle">
           <i class="fas fa-bars"></i>
+          <% if user_signed_in? && current_user.active? %>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle"></i>
+            <% end %>
+          <% end %>
         </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
@@ -39,6 +44,12 @@
               </li>
               <li class="nav-item">
                 <%= link_to 'ツイート', tweets_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item tu-ti">
+                <%= link_to '通知', notifications_path, class: "nav-link"  %>
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle notification-circle"></i>
+                <% end %>
               </li>
             <% end %>
             <% if current_user.admin? %>

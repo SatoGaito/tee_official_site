@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
 
   def destroy
     tweet = Tweet.find(params[:id])
-    tweet.delete
+    tweet.destroy
     redirect_to tweets_path, notice: "ツイートの投稿を削除しました。"
   end
 

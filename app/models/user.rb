@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   validates :name, presence: true, length: { minimum: 2, maximum: 10}
   validates :nickname, :college, presence: true, length: { minimum: 2, maximum: 10 }, on: :update
   validates :grade, :gender, presence: true, on: :update

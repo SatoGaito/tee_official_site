@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :event_calenders
+
+  resources :notifications, only: :index
 end

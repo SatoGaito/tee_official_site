@@ -40,7 +40,7 @@ class EventsController < ApplicationController
 
   def destroy
     event = Event.find(params[:id])
-    event.delete
+    event.destroy
     redirect_to events_path, notice: "活動の投稿を削除しました。"
   end
 
