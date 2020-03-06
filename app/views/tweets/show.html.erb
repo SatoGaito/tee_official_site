@@ -74,7 +74,7 @@
               <% end %>
             </td>
             <td><%=link_to favorite.user.nickname, user_path(favorite.user) %></td>
-            <td>いいねしました。</td>
+            <td>いいね！しました。</td>
           </tr>
           <% end %>
         <% end %>
@@ -111,14 +111,14 @@
               <div class="commnt-bottom">
                 <div class="comment-text d-flex flex-row align-items-center mb-2">
                   <i class="far fa-comment-dots mr-3 ml-3"></i>
-                  <span class="mr-auto text-left"><%= safe_join(tweet_comment.comment.split("\n"), tag(:br)) %></span>
-                  <% if user_signed_in? && current_user.id == tweet_comment.user_id %>
-                    <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-2 mr-2 btn btn-sm btn-success" %> 
-                  <% end %>
+                  <span class="text-left"><%= safe_join(tweet_comment.comment.split("\n"), tag(:br)) %></span>
                 </div>
                 <div class="comment-date d-flex flex-row align-items-center">
                   <i class="far fa-clock mr-3 ml-3"></i>
                   <%= tweet_comment.created_at.strftime('%Y/%m/%d/%R') %>
+                  <% if user_signed_in? && current_user.id == tweet_comment.user_id %>
+                    <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "delete ml-auto mr-2 btn btn-sm btn-success" %> 
+                  <% end %>
                 </div>
               </div>
             </div>
