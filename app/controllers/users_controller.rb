@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
 
+  before_action :show_active_correct_user, only: :show
   before_action :non_active_user, only: :index
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :authenticate_user!, except: :about
 
   def about
-    @users = User.all
+    @users = User.all.select{|i| i[:active] == true }
     @male = @users.select{|i| i[:gender] == "男" }
     @female = @users.select{|i| i[:gender] == "女" }
     @executive = @users.select{|i| i[:executive] == true }
@@ -53,8 +54,18 @@ class UsersController < ApplicationController
 
   def non_active_user
     unless user_signed_in? && current_user.active?
-      flash[:notice] = "アカウントがアクティブではありません"
+      flash[:notice] = "アカウントがアクティブではありません。会長または副会長に連絡してください。"
       redirect_to '/'
+    end
+  end
+
+  def show_active_correct_user
+    @user = User.find(params[:id])
+    unless user_signed_in? && current_user.active?
+      if @user.id != current_user.id
+        flash[:notice] = "アカウントがアクティブではありません。会長または副会長に連絡してください。"
+        redirect_to '/'
+      end
     end
   end
 end

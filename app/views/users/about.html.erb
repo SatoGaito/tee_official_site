@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="bg-white bg-about">
   <div class="row">
     <div class="about">
       <div id="example-2" class="carousel slide carousel-fade px-2 my-4" data-ride="carousel">
@@ -24,111 +24,119 @@
       </div>
 
       <div class="mb-4 bg-white text-center px-4">
-        <h4 class="font-weight-bold">Teeの由来</h4>
-        <hr class="bg-danger w-50 mb-4">
-        <div>
-          <p>
-            Teeでは<em>「一期一会」</em>という言葉を
-            <br>
-            モットーにしていて、一期一会を英語で
-          </p>
-          <em class="motto">
-            <p class="mb-0 text-left">
-              「<span>T</span>reasure <span>e</span>very <span>e</span>ncounter,
+        <div class="about-section">
+          <h4 class="font-weight-bold">Teeの由来</h4>
+          <hr class="bg-danger w-50 mb-4">
+          <div>
+            <p>
+              Teeでは<em>「一期一会」</em>という言葉を
+              <br>
+              モットーにしていて、一期一会を英語で
             </p>
-            <p class="text-right">for it will never recure.」</p>
-          </em>
-          <p class="mb-0">その最初の３つの単語の頭文字をとって、</p>
-          <p><em class="motto"><span>Tee</span></em>となりました！</p>
+            <em class="motto">
+              <p class="mb-0 text-left">
+                「<span>T</span>reasure <span>e</span>very <span>e</span>ncounter,
+              </p>
+              <p class="text-right">for it will never recure.」</p>
+            </em>
+            <p class="mb-0">その最初の３つの単語の頭文字をとって、</p>
+            <p><em class="motto"><span>Tee</span></em>となりました！</p>
+          </div>
         </div>
       </div>
 
       <div class="event-content mb-4 bg-light text-center p-4">
-        <h4 class="font-weight-bold">主な活動内容について</h4>
-        <hr class="bg-primary mb-4">
-        <ul class="pl-0 ml-4 text-left">
-          <li>
-            <h6>活動場所：</h6>
-            <p>基本的には梅田、難波などが多く、
-            たまに三ノ宮や京都などもあります。</p>
-          </li>
-          <li>
-            <h6>活動内容：</h6>
-            <p>
-              毎月３回、幹部が考えたオリジナルの企画をして遊んでいます。
-            </p>
-          </li>
-          <li>
-            <h6>代表的な活動：</h6>
-            <p>
-              逃走中、運動会、ハロウィンパーティー、神戸や京都散策、旅行など。
-            </p>
-          </li>
-          <li>
-            <h6>日時：</h6>
-            <p>
-              毎月６日、１８日、第４金曜日に活動しています。
-            </p>
-          </li>
-          <li>
-            <h6>参加費：</h6>
-            <p>
-              活動内容によって変わりますが、500~3000円です。
-            </p>
-          </li>
-        </ul>
+        <div class="about-section">
+          <h4 class="font-weight-bold">主な活動内容について</h4>
+          <hr class="bg-primary mb-4">
+          <ul class="pl-0 ml-4 text-left">
+            <li>
+              <h6>活動場所：</h6>
+              <p>基本的には梅田、難波などが多く、
+              たまに三ノ宮や京都などもあります。</p>
+            </li>
+            <li>
+              <h6>活動内容：</h6>
+              <p>
+                毎月３回、幹部が考えたオリジナルの企画をして遊んでいます。
+              </p>
+            </li>
+            <li>
+              <h6>代表的な活動：</h6>
+              <p>
+                逃走中、運動会、ハロウィンパーティー、神戸や京都散策、旅行など。
+              </p>
+            </li>
+            <li>
+              <h6>日時：</h6>
+              <p>
+                毎月６日、１８日、第４金曜日に活動しています。
+              </p>
+            </li>
+            <li>
+              <h6>参加費：</h6>
+              <p>
+                活動内容によって変わりますが、500~3000円です。
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="mb-2 text-center p-4 w-75 mx-auto">
-        <h4 class="font-weight-bold">メンバー構成</h4>
-        <hr class="bg-warning mb-4">
-        <div class="d-flex justify-content-around mb-2">
-          <p class="mb-0">全体数：<%= @users.count %>名</p>
-          <p class="mb-0">幹部数：<%= @executive.count %>名</p>
-        </div>
-        <div class="d-flex justify-content-around mb-2">
-          <p class="mb-0">１回生：<%= @grade_one.count %>名</p>
-          <p class="mb-0">２回生：<%= @grade_two.count %>名</p>
-        </div>
-        <div class="d-flex justify-content-around mb-2">
-          <p class="mb-0">３回生：<%= @grade_three.count %>名</p>
-          <p class="mb-0">４回生：<%= @grade_four.count %>名</p>
-        </div>
-        <div class="d-flex justify-content-around mb-4">
-          <p class="mb-0">男子：<%= @male.count %>名</p>
-          <p class="mb-0">女子：<%= @female.count %>名</p>
-        </div>
-        <div class="mb-4">
-          <h6 class="font-weight-bold">所属大学<h6>
-          <p>
-            関関同立　産近甲龍<br>
-            武庫女　南女　親和　梅花<br>
-            大経　大産　etc...
-          </p>
-        </div>
-        <div>
-          <h6 class="font-weight-bold">住んでる地域</h6>
-          <p>
-            大阪　兵庫　京都　奈良
-          </p>
+        <div class="about-section">
+          <h4 class="font-weight-bold">メンバー構成</h4>
+          <hr class="bg-warning mb-4">
+          <div class="d-flex justify-content-around mb-2">
+            <p class="mb-0">全体数：<%= @users.count %>名</p>
+            <p class="mb-0">幹部数：<%= @executive.count %>名</p>
+          </div>
+          <div class="d-flex justify-content-around mb-2">
+            <p class="mb-0">１回生：<%= @grade_one.count %>名</p>
+            <p class="mb-0">２回生：<%= @grade_two.count %>名</p>
+          </div>
+          <div class="d-flex justify-content-around mb-2">
+            <p class="mb-0">３回生：<%= @grade_three.count %>名</p>
+            <p class="mb-0">４回生：<%= @grade_four.count %>名</p>
+          </div>
+          <div class="d-flex justify-content-around mb-4">
+            <p class="mb-0">男子：<%= @male.count %>名</p>
+            <p class="mb-0">女子：<%= @female.count %>名</p>
+          </div>
+          <div class="mb-4">
+            <h6 class="font-weight-bold">所属大学<h6>
+            <p>
+              関関同立　産近甲龍<br>
+              武庫女　南女　親和　梅花<br>
+              大経　大産　etc...
+            </p>
+          </div>
+          <div>
+            <h6 class="font-weight-bold">住んでる地域</h6>
+            <p>
+              大阪　兵庫　京都　奈良
+            </p>
+          </div>
         </div>
       </div>
 
       <div class="mb-4 text-center bg-light p-4">
-        <h4 class="font-weight-bold">年会費の詳細についいて</h4>
-        <hr class="bg-success mb-4">
-        <div>
-          <p class="motto">
-            Teeでは年会費として、<br>
-            全員から<span>2000円</span>を頂いております。<br>
-          </p>
-          <p>その年会費の使い道としては、</p>
-          <ul class="px-0 py-4 border">
-            <li>11月に行う学園祭での出品費用</li>
-            <li>次の年に行う新歓の準備費用</li>
-          </ul>
-            に当てさせて頂いております。
-          </p>
+        <div class="about-section">
+          <h4 class="font-weight-bold">年会費の詳細についいて</h4>
+          <hr class="bg-success mb-4">
+          <div>
+            <p class="motto">
+              Teeでは年会費として、<br>
+              全員から<span>2000円</span>を頂いております。<br>
+            </p>
+            <p>その年会費の使い道としては、</p>
+            <ul class="px-0 py-4 border">
+              <li>11月に行う学園祭での出品費用</li>
+              <li>次の年に行う新歓の準備費用</li>
+            </ul>
+              に当てさせて頂いております。
+            </p>
+          </div>
         </div>
       </div>
 

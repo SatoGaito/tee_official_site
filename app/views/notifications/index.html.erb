@@ -1,4 +1,4 @@
-<div class="container bg-light">  
+<div class="container bg-light bg-tu-ti">  
   <div class="row">
     <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
     <% if notifications.exists? %>

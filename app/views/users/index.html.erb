@@ -53,18 +53,18 @@
       </thead>
       <tbody>
         <% @users.each do |user| %>
-          <% if user.active? && user.nickname.present? %>
-          <tr>
-            <td>      
-              <% if user.p_image.attached? %>
-                <%= image_tag user.p_image %>
-              <% else %>
-                <%= image_tag 'big.jpg' %>
-              <% end %>
-            </td>
-            <td><%=link_to user.nickname, user_path(user) %></td>
-            <td><%= user.grade %></td>
-          </tr>
+          <% if user.active? %>
+            <tr>
+              <td>      
+                <% if user.p_image.attached? %>
+                  <%= image_tag user.p_image %>
+                <% else %>
+                  <%= image_tag 'big.jpg' %>
+                <% end %>
+              </td>
+              <td><%=link_to user.nickname, user_path(user) %></td>
+              <td><%= user.grade %></td>
+            </tr>
           <% end %>
         <% end %>
       </tbody>

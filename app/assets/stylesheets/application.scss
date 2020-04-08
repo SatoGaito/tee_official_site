@@ -94,6 +94,7 @@ li {
   margin-top: auto;
 }
 
+
 // AboutPage
 
 .about {
@@ -576,5 +577,63 @@ li {
   }
 }
 
+
+
+@media screen and (min-width:770px) {
+
+  .container {
+    width: 900px;
+  }
+
+  .bg-about {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  .caption {
+    h1 {
+      font-size: 50px;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+    p {
+      font-size: 25px;
+      margin-bottom: 70px;
+    }
+  
+    a {
+      font-size: 25px;
+    }
+  }
+
+  .simple-calendar {
+  
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .day {
+      font-size: 12px;
+      height: 75px;
+    }
+  
+    th {
+      font-size: 15px;
+    }
+  
+  }
+
+  .about-section {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .tu-ti-show {
+    width: 100%;
+  }
+
+}
 
 

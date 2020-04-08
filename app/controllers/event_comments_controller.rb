@@ -29,7 +29,7 @@ class EventCommentsController < ApplicationController
 
   def non_active_user
     unless user_signed_in? && current_user.active?
-      flash[:notice] = "アカウントがアクティブではありません"
+      flash[:notice] = "アカウントがアクティブではありません。会長または副会長に連絡してください。"
       redirect_to '/'
     end
   end  
