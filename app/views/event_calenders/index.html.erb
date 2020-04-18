@@ -17,7 +17,7 @@
               ※《変更前》新歓開催日<br>
               4/11(土) 14:00~ ❌<br>
               4/18(土) 14:00~ ❌<br>
-              4/26(日) 14:00~ [検討中]
+              4/26(日) 14:00~ ❌
             </p>
           </div>
 
@@ -28,7 +28,6 @@
           <div class="bg-white yotei mb-2">
             ※《変更後》新歓開催予定日
             <p class="text-left mb-0 mt-2">
-              4/26(日) 14:00~ [検討中]<br>
               5/10(日) 14:00~ <br>
               5/17(日) 14:00~ 
             </p>
@@ -56,7 +55,9 @@
       </div>
     </div>
 
-    <div class="cta w-100 text-center mb-4">
+    <%= video_tag("/assets/tee_2020.mp4", :controls => true, :autoplay => true, :loop => true, :muted => true, style: "width:100%;") %>
+
+    <div class="cta w-100 text-center my-4">
       <%= link_to 'ログイン', new_user_session_path, class: "btn login-btn" %>
       <%= link_to 'サインアップ', new_user_registration_path, class: "btn sign-up-btn" %>
     </div>
