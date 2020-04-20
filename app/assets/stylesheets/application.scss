@@ -118,6 +118,25 @@ li {
 
   #example-1 {
 
+    .carousel-item {
+      position: relative;
+    }
+
+    .movie-title {
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      opacity: 0.7;
+
+      h6 {
+        background-color: #fff;
+        padding: 10px;
+        font-weight: bold;
+      }
+    }
+
     .carousel-control-prev,
     .carousel-control-next {
       top: 55px;
