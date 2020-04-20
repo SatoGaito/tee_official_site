@@ -28,60 +28,64 @@
         </div>
       </div>
 
-      <div id="example-1" class="carousel slide px-2" data-interval=6000 data-ride="carousel">
-        <ol class="carousel-indicators mb-4">
-          <li data-target="#example-1" data-slide-to="0" class="active"></li>
-          <li data-target="#example-1" data-slide-to="1"></li>
-          <li data-target="#example-1" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1UJ2HY-llR_AB1KB8QMzldMETLbISV9xE/preview"></iframe>
+      <% if user_signed_in? && current_user.active? %>
+        <div id="example-1" class="carousel slide px-2" data-interval=6000 data-ride="carousel">
+          <ol class="carousel-indicators mb-4">
+            <li data-target="#example-1" data-slide-to="0" class="active"></li>
+            <li data-target="#example-1" data-slide-to="1"></li>
+            <li data-target="#example-1" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1UJ2HY-llR_AB1KB8QMzldMETLbISV9xE/preview"></iframe>
+              </div>
+              <div class="movie-title">
+                <h4 class="text-center">
+                  2020年3月<br>
+                  追いコン
+                </h4>
+              </div>
             </div>
-            <div class="movie-title">
-              <h4 class="text-center">
-                2020年3月<br>
-                追いコン
-              </h4>
+            <div class="carousel-item">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1YhwWxanwcU09cCq7qzTMSd4T8NWexZyb/preview"></iframe>
+              </div>
+              <div class="movie-title">
+                <h4 class="text-center">
+                  2019年3月<br>
+                  追いコン
+                </h4>
+              </div>
             </div>
+            <div class="carousel-item">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1lZ2Ipcv8XG7BUDn4nGVNFOZQ8TB8pn97/preview"></iframe>
+              </div>
+              <div class="movie-title">
+                <h4 class="text-center">
+                  2017年3月<br>
+                  追いコン
+                </h4>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#example-1" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#example-1" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <div class="carousel-item">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1YhwWxanwcU09cCq7qzTMSd4T8NWexZyb/preview"></iframe>
-            </div>
-            <div class="movie-title">
-              <h4 class="text-center">
-                2019年3月<br>
-                追いコン
-              </h4>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1lZ2Ipcv8XG7BUDn4nGVNFOZQ8TB8pn97/preview"></iframe>
-            </div>
-            <div class="movie-title">
-              <h4 class="text-center">
-                2017年3月<br>
-                追いコン
-              </h4>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#example-1" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#example-1" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-      </div>
+              
+        <div class="small mb-4 text-center mt-1">
+          再生されない場合は、右上の↗︎マークを押してください。
+        </div>
+      <% end %>
 
-      <div class="small mb-4 text-center mt-1">
-        再生されない場合は、右上の↗︎マークを押してください。
-      </div>
+
 
       <div class="mb-4 bg-white text-center px-4">
         <div class="about-section">
