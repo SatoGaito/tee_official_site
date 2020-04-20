@@ -99,10 +99,11 @@ li {
 
 .about {
 
-  .carousel {
+  #example-2 {
     width: 100%;
     padding: 50px 0 20px;
   }
+
 
   .carousel-item {
     img {
@@ -113,6 +114,18 @@ li {
       border: 1px solid #dee2e6;
       border-radius: .25rem;
     }
+  }
+
+  .carousel-caption {
+    opacity: 0.5;
+
+    h2 {
+      background-color: #fff;
+      color: #000;
+      padding: 30px 0;
+      font-weight: bold;
+    }
+    
   }
 
 
