@@ -116,17 +116,14 @@ li {
     }
   }
 
-  .carousel-caption {
-    opacity: 0.5;
+  #example-1 {
 
-    h2 {
-      background-color: #fff;
-      color: #000;
-      padding: 30px 0;
-      font-weight: bold;
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: 55px;
     }
-    
   }
+
 
 
   em.motto {
