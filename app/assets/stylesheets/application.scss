@@ -125,14 +125,15 @@ li {
     .movie-title {
       position: absolute;
       left: 50%;
-      top: 10px;
+      top: 5px;
       transform: translateX(-50%);
       -webkit-transform: translateX(-50%);
       opacity: 0.7;
+      width: 75%;
 
-      h6 {
+      h4 {
         background-color: #fff;
-        padding: 10px;
+        padding: 0 5px;
         font-weight: bold;
       }
     }
@@ -549,6 +550,27 @@ li {
   }
 }
 
+.movie {
+  position: relative;
+
+
+  .movie-title {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    opacity: 0.7;
+    width: 75%;
+
+    h4 {
+      background-color: #fff;
+      padding: 0 5px;
+      font-weight: bold;
+    }
+  }
+}
+
 // calendar-show
 
 .calender-show {
@@ -689,6 +711,19 @@ li {
 
   .tu-ti-show {
     width: 100%;
+  }
+
+  #example-1,
+  .movie {
+
+    .movie-title {
+      margin-top: 20px;
+
+      
+      h4 {
+        font-size: 50px;
+      }
+    }
   }
 
 }
