@@ -24,12 +24,14 @@
               </td>
               <td class="text-left">
 
-                <% if tweet.t_image.attached? %>
-                  <%= image_tag tweet.t_image %>
-                <% end %>
-
                 <%= link_to tweet.tweet, tweet_path(tweet) %>
+
                 <div class="tweet-date text-right de-flex justify-content-between mt-1">
+
+                  <% if tweet.t_image.attached? %>
+                    <%= image_tag tweet.t_image %>
+                  <% end %>
+
                   <i class="far fa-comment-dots mr-1"></i><%= tweet.tweet_comments.count %>
                   <% if tweet.favorited_by?(current_user) %>
                     <%= link_to tweet_favorites_path(tweet), method: :delete do %>
