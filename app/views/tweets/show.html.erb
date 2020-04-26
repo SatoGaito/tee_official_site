@@ -14,13 +14,12 @@
       <div class="tweet-content mb-4">
 
         <% if @tweet.t_image.attached? %>
-          <hr>
           <div class="tweet-image text-center">
             <%= image_tag @tweet.t_image %>
           </div>
           <hr>
         <% end %>
-        
+
         <%= safe_join(@tweet.tweet.split("\n"), tag(:br)) %>
         <div class="text-right">
           <i class="far fa-clock mr-1 ml-1"></i><%= @tweet.created_at.strftime('%Y/%m/%d/%R') %>
