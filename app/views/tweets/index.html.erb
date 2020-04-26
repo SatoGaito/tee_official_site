@@ -25,7 +25,7 @@
               <td class="text-left">
 
                 <% if tweet.t_image.attached? %>
-                  <%= image_tag @tweet.t_image %>
+                  <%= image_tag tweet.t_image %>
                 <% end %>
 
                 <%= link_to tweet.tweet, tweet_path(tweet) %>
