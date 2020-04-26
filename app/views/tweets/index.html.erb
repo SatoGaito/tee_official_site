@@ -28,9 +28,11 @@
 
                 <div class="tweet-date text-right de-flex justify-content-between mt-1">
 
-                  <% if tweet.t_image.attached? %>
-                    <%= image_tag tweet.t_image %>
-                  <% end %>
+                  <div>
+                    <% if tweet.t_image.attached? %>
+                      <%= image_tag tweet.t_image %>
+                    <% end %>
+                  </div>
 
                   <i class="far fa-comment-dots mr-1"></i><%= tweet.tweet_comments.count %>
                   <% if tweet.favorited_by?(current_user) %>
