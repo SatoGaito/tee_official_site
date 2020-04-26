@@ -4,6 +4,8 @@ class Tweet < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
+  has_one_attached :t_image
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

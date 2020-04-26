@@ -15,6 +15,11 @@
           </div>
 
           <div class="field">
+            <%= f.label :t_image, "ツイート画像：" %>
+            <%= f.file_field :t_image %>
+          </div>
+
+          <div class="field">
             <%= f.submit "更新", class: "btn btn-lg btn-block btn-success" %>
           </div>
         <% end %>
