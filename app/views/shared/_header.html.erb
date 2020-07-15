@@ -44,12 +44,14 @@
             <li class="nav-item">
               <%= link_to 'ツイート', tweets_path, class: "nav-link" %>
             </li>
-            <li class="nav-item tu-ti">
-              <%= link_to '通知', notifications_path, class: "nav-link"  %>
-              <% if unchecked_notifications.any? %>
-                <i class="fa fa-circle notification-circle"></i>
-              <% end %>
-            </li>
+            <% if current_user.active? %>
+              <li class="nav-item tu-ti">
+                <%= link_to '通知', notifications_path, class: "nav-link"  %>
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle notification-circle"></i>
+                <% end %>
+              </li>
+            <% end %>
             <% if current_user.admin? %>
               <li class="nav-item">
                 <%= link_to '管理者ページ', '/admin', class: "nav-link" %>
